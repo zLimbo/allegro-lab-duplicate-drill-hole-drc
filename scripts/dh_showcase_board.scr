@@ -1,0 +1,4 @@
+skill load "scripts/dh_showcase_board.il"
+skill dhs_main("allegro/dh_duplicate_drill_showcase.brd" "results/dh_showcase_objects.csv")
+set noconfirm
+quit

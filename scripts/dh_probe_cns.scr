@@ -1,0 +1,4 @@
+skill load "scripts/dh_probe_cns.il"
+skill dh_probe_cns_main("results/cns_probe.txt")
+set noconfirm
+quit

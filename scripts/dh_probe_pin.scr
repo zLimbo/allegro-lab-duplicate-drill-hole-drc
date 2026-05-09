@@ -1,0 +1,4 @@
+skill load "scripts/dh_probe_pin.il"
+skill dh_probe_pin_main("results/pin_probe.txt" "allegro/dh_pin_probe.brd")
+set noconfirm
+quit

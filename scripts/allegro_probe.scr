@@ -1,0 +1,4 @@
+skill load "scripts/allegro_probe.il"
+skill dh_probe_main("results/allegro_probe.txt")
+set noconfirm
+quit

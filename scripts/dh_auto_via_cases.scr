@@ -1,0 +1,4 @@
+skill load "scripts/dh_auto_via_cases.il"
+skill dh_auto_via_cases_main("allegro/dh_auto_via_cases.brd" "results/generated_via_objects.csv")
+set noconfirm
+quit

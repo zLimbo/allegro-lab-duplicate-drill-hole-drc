@@ -1,0 +1,4 @@
+skill load "scripts/dump_drc_attrs.il"
+skill dump_drc_attrs_main("results/dh_showcase_drc_attrs.txt")
+set noconfirm
+quit

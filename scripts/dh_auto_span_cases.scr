@@ -1,0 +1,4 @@
+skill load "scripts/dh_auto_span_cases.il"
+skill dh_auto_span_cases_main("allegro/dh_auto_span_cases.brd" "results/generated_span_objects.csv")
+set noconfirm
+quit
