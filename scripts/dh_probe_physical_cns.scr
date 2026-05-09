@@ -1,0 +1,4 @@
+skill load "scripts/dh_probe_physical_cns.il"
+skill dh_probe_physical_cns_main("results/physical_cns_probe.txt")
+set noconfirm
+quit

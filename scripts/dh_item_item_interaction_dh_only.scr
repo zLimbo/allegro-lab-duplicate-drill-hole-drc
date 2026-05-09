@@ -1,0 +1,4 @@
+skill load "scripts/dh_item_item_interaction.il"
+skill dh_item_item_interaction_main("allegro/dh_item_item_interaction.dh_only.brd" "results/dh_item_item_interaction.dh_only.objects.csv" nil)
+set noconfirm
+quit
