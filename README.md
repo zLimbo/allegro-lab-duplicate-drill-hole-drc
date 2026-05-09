@@ -56,7 +56,7 @@ report DH when:
   drill layer spans overlap with positive Z length
 ```
 
-Observed non-factors once those two conditions hold include padstack name, copper pad size, copper pad shape, drill diameter, plating, round/slot style, slot size, slot X/Y orientation, object type, net name, and no-net status. Drill-body overlap without matching via/padstack instance origin has not reported DH in the current showcase. Explicit padstack `drillOffset` did not move the DH comparison coordinate in the generated via cases. For multi-drill padstacks, current evidence indicates a parameter-level comparison: identical multi-drill parameters at the same origin report, while single-vs-multi member-hole alignment and partial member-hole overlap do not. Rows/columns, row/column orientation, spacing/clearance, and drill diameter/derived pitch affected compatibility; the tested 2x2 staggered mismatch did not suppress DH.
+Observed non-factors once those two conditions hold include padstack name, copper pad size, copper pad shape, drill diameter, plating, round/slot style, slot size, slot X/Y orientation, object type, net name, and no-net status. Drill-body overlap without matching via/padstack instance origin has not reported DH in the current showcase. Explicit padstack `drillOffset` did not move the DH comparison coordinate in the generated via cases. For multi-drill padstacks, current evidence indicates a parameter-level comparison: rows, columns, row/column orientation, and derived member-center pitch must match. Padstack name, drill diameter by itself, spacing/clearance by itself, and the tested 2x2 staggered mismatch did not suppress DH.
 
 See `docs/showcase_case_analysis.md` for detailed per-case evidence.
 
@@ -120,6 +120,6 @@ report DH when:
   drill layer spans overlap with positive Z length
 ```
 
-当上述两个条件成立时，目前观察到以下因素不会抑制 DH：padstack 名称、copper pad 大小、copper pad 形状、孔径、plating、round/slot 类型、slot 尺寸、slot X/Y 方向、object type、net 名称以及 no-net 状态。当前 showcase 中，只有 drill 孔体重叠但 via/padstack instance origin 不同的情况没有触发 DH；显式 padstack `drillOffset` 在生成的 via case 中也没有移动 DH 比较坐标。对于 multi-drill padstack，当前证据表明 Allegro 更像是做参数级比较：同 origin 且 multi-drill 参数相同会报，single-vs-multi member-hole 对齐或局部 member-hole 重合不会报。rows/columns、row/column orientation、spacing/clearance、drill diameter/derived pitch 会影响兼容性；已测的 2x2 staggered 差异没有抑制 DH。
+当上述两个条件成立时，目前观察到以下因素不会抑制 DH：padstack 名称、copper pad 大小、copper pad 形状、孔径、plating、round/slot 类型、slot 尺寸、slot X/Y 方向、object type、net 名称以及 no-net 状态。当前 showcase 中，只有 drill 孔体重叠但 via/padstack instance origin 不同的情况没有触发 DH；显式 padstack `drillOffset` 在生成的 via case 中也没有移动 DH 比较坐标。对于 multi-drill padstack，当前证据表明 Allegro 更像是做参数级比较：rows、columns、row/column orientation、derived member-center pitch 必须匹配。padstack 名称、drill diameter 本身、spacing/clearance 本身、已测 2x2 staggered 差异没有抑制 DH。
 
 逐项证据见 `docs/showcase_case_analysis.md`。

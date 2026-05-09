@@ -1,11 +1,11 @@
 DRC Error Report
 D:/pcb/Duplicate Drill Hole DRC/allegro/dh_duplicate_drill_showcase.drc_only.brd
-Sat May  9 15:42:35 2026
+Sat May  9 16:12:55 2026
 
 DRC Error Count Summary
 DRC Error Type,DRC Error Count
-Manufacturing Constraint,45
-Total DRC Errors,45
+Manufacturing Constraint,47
+Total DRC Errors,47
 
 Detailed DRC Errors
 Constraint Name,DRC Marker Location,DRC Subclass,Required Value,Actual Value,Constraint Source,Constraint Source Type,Element 1,Element 2
@@ -37,10 +37,12 @@ Duplicate Drill Hole,(258.000 208.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_P
 Duplicate Drill Hole,(258.000 240.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (258.000 240.000) (Dhs_A)",Via "Dhs_Rnd_Pth_050  (258.000 240.000) (Dhs_A)"
 Duplicate Drill Hole,(294.000 8.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Drill_Off_Xm030  (294.000 8.000) (Dhs_A)",Via "Dhs_Drill_Off_Xp030  (294.000 8.000) (Dhs_A)"
 Duplicate Drill Hole,(294.000 32.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Md_2X2_C050  (294.000 32.000) (Not On A Net)",Via "Dhs_Md_2X2_C050_Stag  (294.000 32.000) (Not On A Net)"
+Duplicate Drill Hole,(294.000 64.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Md_1X2_C050  (294.000 64.000) (Not On A Net)",Via "Dhs_Md_1X2_D025_C045  (294.000 64.000) (Not On A Net)"
 Duplicate Drill Hole,(294.000 112.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Pad_Top_Large_Bot_Small  (294.000 112.000) (Dhs_A)",Via "Dhs_Pad_Top_Small_Bot_Large  (294.000 112.000) (Dhs_A)"
 Duplicate Drill Hole,(294.000 144.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (294.000 144.000) (Not On A Net)",Via "Dhs_Rnd_Pth_025  (294.000 144.000) (Not On A Net)"
 Duplicate Drill Hole,(294.000 208.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Top_Gnd  (294.000 208.000) (Dhs_A)",Via "Dhs_Top_Inner1  (294.000 208.000) (Dhs_A)"
 Duplicate Drill Hole,(294.000 240.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Npth_025  (294.000 240.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025  (294.000 240.000) (Dhs_A)"
+Duplicate Drill Hole,(330.000 64.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Md_2X2_C050  (330.000 64.000) (Not On A Net)",Via "Dhs_Md_2X2_D025_C045  (330.000 64.000) (Not On A Net)"
 Duplicate Drill Hole,(330.000 112.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Pad_Large_Same_Drill  (330.000 112.000) (Dhs_B)",Via "Dhs_Pad_Small_Same_Drill  (330.000 112.000) (Dhs_A)"
 Duplicate Drill Hole,(330.000 144.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Power_Bottom  (330.000 144.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025  (330.000 144.000) (Dhs_A)"
 Duplicate Drill Hole,(330.000 240.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (330.000 240.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025  (330.000 240.000) (Dhs_B)"
@@ -50,8 +52,8 @@ Duplicate Drill Hole,(366.000 144.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Pad_L
 Duplicate Drill Hole,(366.000 240.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (366.000 240.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025  (366.000 240.000) (Dhs_A)"
 Duplicate Drill Hole,(402.000 144.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Pad_Large_Same_Drill  (402.000 144.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025  (402.000 144.000) (Dhs_A)"
 Duplicate Drill Hole,(402.000 176.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Gnd_Power  (402.000 176.000) (Dhs_A)",Via "Dhs_Inner2_Bottom  (402.000 176.000) (Dhs_A)"
+Duplicate Drill Hole,(402.000 208.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (402.000 208.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025_Alt  (402.000 208.000) (Dhs_A)"
 Duplicate Drill Hole,(402.000 208.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (402.000 208.000) (Dhs_A)",Via "Dhs_Rnd_Pth_050  (402.000 208.000) (Dhs_B)"
 Duplicate Drill Hole,(402.000 208.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025_Alt  (402.000 208.000) (Dhs_A)",Via "Dhs_Rnd_Pth_050  (402.000 208.000) (Dhs_B)"
-Duplicate Drill Hole,(402.000 208.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (402.000 208.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025_Alt  (402.000 208.000) (Dhs_A)"
 Duplicate Drill Hole,(402.000 240.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (402.000 240.000) (Dhs_A)",Via "Dhs_Slot_Pth_025X075  (402.000 240.000) (Dhs_A)"
 

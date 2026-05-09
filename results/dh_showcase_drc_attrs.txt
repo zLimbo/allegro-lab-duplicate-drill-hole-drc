@@ -1,135 +1,141 @@
 DRC 1
-(prop nil bBox ((149.5 47.5) (150.5 48.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (150.0 48.0) violations (dbid:00000245D7EC9380 dbid:00000245D7EC92C0) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((257.5 175.5) (258.5 176.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (258.0 176.0) violations (dbid:00000249E89B7A30 dbid:00000249E89B7AF0) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 2
-(prop nil bBox ((257.5 31.5) (258.5 32.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (258.0 32.0) violations (dbid:00000245D7ECC648 dbid:00000245D7ECC708) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((257.5 31.5) (258.5 32.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (258.0 32.0) violations (dbid:00000249E89C5368 dbid:00000249E89C52A8) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 3
-(prop nil bBox ((365.5 239.5) (366.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (366.0 240.0) violations (dbid:00000245D7EBC5F0 dbid:00000245D7EBC680) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((293.5 63.5) (294.5 64.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (294.0 64.0) violations (dbid:00000249E89C6E58 dbid:00000249E89C6D98) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 4
-(prop nil bBox ((293.5 111.5) (294.5 112.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (294.0 112.0) violations (dbid:00000245D7EC6E38 dbid:00000245D7EC6EF8) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((365.5 239.5) (366.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (366.0 240.0) violations (dbid:00000249E89B52E0 dbid:00000249E89B5250) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 5
-(prop nil bBox ((293.5 143.5) (294.5 144.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (294.0 144.0) violations (dbid:00000245D7EC5680 dbid:00000245D7EC5740) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((401.5 143.5) (402.5 144.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (402.0 144.0) violations (dbid:00000249E89BECA8 dbid:00000249E89BEBE8) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 6
-(prop nil bBox ((293.5 31.5) (294.5 32.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (294.0 32.0) violations (dbid:00000245D7ECC9F8 dbid:00000245D7ECC938) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((293.5 111.5) (294.5 112.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (294.0 112.0) violations (dbid:00000249E89BFB58 dbid:00000249E89BFA98) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 7
-(prop nil bBox ((329.5 111.5) (330.5 112.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (330.0 112.0) violations (dbid:00000245D7EC7120 dbid:00000245D7EC71E0) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((329.5 111.5) (330.5 112.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (330.0 112.0) violations (dbid:00000249E89BFD80 dbid:00000249E89BFE40) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 8
-(prop nil bBox ((257.5 175.5) (258.5 176.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (258.0 176.0) violations (dbid:00000245D7EBEE90 dbid:00000245D7EBEDD0) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((401.5 239.5) (402.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (402.0 240.0) violations (dbid:00000249E89B55C8 dbid:00000249E89B5538) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 9
-(prop nil bBox ((365.5 31.5) (366.5 32.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (366.0 32.0) violations (dbid:00000245D7ECCF18 dbid:00000245D7ECCFD8) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((221.5 175.5) (222.5 176.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (222.0 176.0) violations (dbid:00000249E89B7808 dbid:00000249E89B7748) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 10
-(prop nil bBox ((221.5 7.5) (222.5 8.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (222.0 8.0) violations (dbid:00000245D7ECE740 dbid:00000245D7ECE800) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((149.5 79.5) (150.5 80.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (150.0 80.0) violations (dbid:00000249E89C0740 dbid:00000249E89C0680) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 11
-(prop nil bBox ((221.5 175.5) (222.5 176.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (222.0 176.0) violations (dbid:00000245D7EBEBA8 dbid:00000245D7EBEAE8) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((221.5 47.5) (222.5 48.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (222.0 48.0) violations (dbid:00000249E89C25F0 dbid:00000249E89C2530) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 12
-(prop nil bBox ((257.5 239.5) (258.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (258.0 240.0) violations (dbid:00000245D7EBBD38 dbid:00000245D7EBBDF8) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((293.5 239.5) (294.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (294.0 240.0) violations (dbid:00000249E89B4D10 dbid:00000249E89B4C80) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 13
-(prop nil bBox ((149.5 111.5) (150.5 112.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (150.0 112.0) violations (dbid:00000245D7EC6278 dbid:00000245D7EC6338) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((401.5 175.5) (402.5 176.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (402.0 176.0) violations (dbid:00000249E89B86F8 dbid:00000249E89B8638) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 14
-(prop nil bBox ((149.5 79.5) (150.5 80.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (150.0 80.0) violations (dbid:00000245D7EC7A20 dbid:00000245D7EC7AE0) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((329.5 239.5) (330.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (330.0 240.0) violations (dbid:00000249E89B4F68 dbid:00000249E89B5028) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 15
-(prop nil bBox ((149.5 31.5) (150.5 32.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (150.0 32.0) violations (dbid:00000245D7ECBD68 dbid:00000245D7ECBE28) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((185.5 111.5) (186.5 112.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (186.0 112.0) violations (dbid:00000249E89BF288 dbid:00000249E89BF1C8) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 16
-(prop nil bBox ((221.5 239.5) (222.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (222.0 240.0) violations (dbid:00000245D7EBBB10 dbid:00000245D7EBBA50) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((257.5 239.5) (258.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (258.0 240.0) violations (dbid:00000249E89B4A58 dbid:00000249E89B4998) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 17
-(prop nil bBox ((401.5 207.5) (402.5 208.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (402.0 208.0) violations (dbid:00000245D7EBE118 dbid:00000245D7EBE298) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((257.5 207.5) (258.5 208.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (258.0 208.0) violations (dbid:00000249E89B6110 dbid:00000249E89B61A0) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 18
-(prop nil bBox ((401.5 207.5) (402.5 208.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (402.0 208.0) violations (dbid:00000245D7EBE1D8 dbid:00000245D7EBE298) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((221.5 15.5) (222.5 16.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (222.0 16.0) violations (dbid:00000249E89C3DA0 dbid:00000249E89C3E60) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 19
-(prop nil bBox ((221.5 47.5) (222.5 48.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (222.0 48.0) violations (dbid:00000245D7EC98D0 dbid:00000245D7EC9990) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((365.5 31.5) (366.5 32.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (366.0 32.0) violations (dbid:00000249E89C5B78 dbid:00000249E89C5C38) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 20
-(prop nil bBox ((401.5 207.5) (402.5 208.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (402.0 208.0) violations (dbid:00000245D7EBE118 dbid:00000245D7EBE1D8) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((329.5 63.5) (330.5 64.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (330.0 64.0) violations (dbid:00000249E89C7090 dbid:00000249E89C7150) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 21
-(prop nil bBox ((401.5 175.5) (402.5 176.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (402.0 176.0) violations (dbid:00000245D7EBFA98 dbid:00000245D7EBF9D8) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((257.5 111.5) (258.5 112.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (258.0 112.0) violations (dbid:00000249E89BF868 dbid:00000249E89BF7A8) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 22
-(prop nil bBox ((185.5 111.5) (186.5 112.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (186.0 112.0) violations (dbid:00000245D7EC6628 dbid:00000245D7EC6568) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((149.5 239.5) (150.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (150.0 240.0) violations (dbid:00000249E89AF2F0 dbid:00000249E89AF3B0) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 23
-(prop nil bBox ((149.5 7.5) (150.5 8.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (150.0 8.0) violations (dbid:00000245D7ECE138 dbid:00000245D7ECE1F8) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((401.5 207.5) (402.5 208.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (402.0 208.0) violations (dbid:00000249E89B6E38 dbid:00000249E89B6D78) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 24
-(prop nil bBox ((185.5 239.5) (186.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (186.0 240.0) violations (dbid:00000245D7EBB440 dbid:00000245D7EB9060) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((221.5 7.5) (222.5 8.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (222.0 8.0) violations (dbid:00000249E89C7988 dbid:00000249E89C7A48) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 25
-(prop nil bBox ((149.5 239.5) (150.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (150.0 240.0) violations (dbid:00000245D7EB6690 dbid:00000245D7EB6750) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((185.5 239.5) (186.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (186.0 240.0) violations (dbid:00000249E89B40A0 dbid:00000249E89B1CC0) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 26
-(prop nil bBox ((293.5 207.5) (294.5 208.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (294.0 208.0) violations (dbid:00000245D7EBD860 dbid:00000245D7EBD7D0) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((329.5 143.5) (330.5 144.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (330.0 144.0) violations (dbid:00000249E89BE5D0 dbid:00000249E89BE660) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 27
-(prop nil bBox ((365.5 143.5) (366.5 144.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (366.0 144.0) violations (dbid:00000245D7EC5C90 dbid:00000245D7EC5D50) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((149.5 7.5) (150.5 8.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (150.0 8.0) violations (dbid:00000249E89C7440 dbid:00000249E89C7380) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 28
-(prop nil bBox ((257.5 111.5) (258.5 112.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (258.0 112.0) violations (dbid:00000245D7EC6C08 dbid:00000245D7EC6B48) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((149.5 207.5) (150.5 208.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (150.0 208.0) violations (dbid:00000249E89B5820 dbid:00000249E89B58E0) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 29
-(prop nil bBox ((329.5 239.5) (330.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (330.0 240.0) violations (dbid:00000245D7EBC308 dbid:00000245D7EBC3C8) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((365.5 111.5) (366.5 112.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (366.0 112.0) violations (dbid:00000249E89C0070 dbid:00000249E89C0130) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 30
-(prop nil bBox ((185.5 143.5) (186.5 144.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (186.0 144.0) violations (dbid:00000245D7EC2390 dbid:00000245D7EBFFB0) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((149.5 31.5) (150.5 32.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (150.0 32.0) violations (dbid:00000249E89C4A88 dbid:00000249E89C49C8) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 31
-(prop nil bBox ((221.5 15.5) (222.5 16.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (222.0 16.0) violations (dbid:00000245D7ECB140 dbid:00000245D7ECB200) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((293.5 31.5) (294.5 32.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (294.0 32.0) violations (dbid:00000249E89C5658 dbid:00000249E89C5598) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 32
-(prop nil bBox ((329.5 143.5) (330.5 144.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (330.0 144.0) violations (dbid:00000245D7EC5970 dbid:00000245D7EC5A00) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((221.5 239.5) (222.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (222.0 240.0) violations (dbid:00000249E89B4770 dbid:00000249E89B46B0) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 33
-(prop nil bBox ((221.5 111.5) (222.5 112.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (222.0 112.0) violations (dbid:00000245D7EC6918 dbid:00000245D7EC6858) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((185.5 175.5) (186.5 176.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (186.0 176.0) violations (dbid:00000249E89B7460 dbid:00000249E89B7520) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 34
-(prop nil bBox ((221.5 143.5) (222.5 144.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (222.0 144.0) violations (dbid:00000245D7EC4D50 dbid:00000245D7EC29A0) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((365.5 143.5) (366.5 144.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (366.0 144.0) violations (dbid:00000249E89BE9B0 dbid:00000249E89BE8F0) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 35
-(prop nil bBox ((365.5 111.5) (366.5 112.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (366.0 112.0) violations (dbid:00000245D7EC74D0 dbid:00000245D7EC7410) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((221.5 111.5) (222.5 112.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (222.0 112.0) violations (dbid:00000249E89BF4B8 dbid:00000249E89BF578) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 36
-(prop nil bBox ((293.5 239.5) (294.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (294.0 240.0) violations (dbid:00000245D7EBC020 dbid:00000245D7EBC0B0) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((221.5 143.5) (222.5 144.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (222.0 144.0) violations (dbid:00000249E89BD9B0 dbid:00000249E89BB600) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 37
-(prop nil bBox ((221.5 207.5) (222.5 208.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (222.0 208.0) violations (dbid:00000245D7EBD1C8 dbid:00000245D7EBD288) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((293.5 143.5) (294.5 144.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (294.0 144.0) violations (dbid:00000249E89BE3A0 dbid:00000249E89BE2E0) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 38
-(prop nil bBox ((257.5 143.5) (258.5 144.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (258.0 144.0) violations (dbid:00000245D7EC5390 dbid:00000245D7EC5450) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((257.5 143.5) (258.5 144.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (258.0 144.0) violations (dbid:00000249E89BE0B0 dbid:00000249E89BDFF0) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 39
-(prop nil bBox ((149.5 207.5) (150.5 208.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (150.0 208.0) violations (dbid:00000245D7EBCBC0 dbid:00000245D7EBCC80) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((401.5 207.5) (402.5 208.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (402.0 208.0) violations (dbid:00000249E89B6D78 dbid:00000249E89B6EF8) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 40
-(prop nil bBox ((185.5 175.5) (186.5 176.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (186.0 176.0) violations (dbid:00000245D7EBE8C0 dbid:00000245D7EBE800) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((401.5 207.5) (402.5 208.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (402.0 208.0) violations (dbid:00000249E89B6E38 dbid:00000249E89B6EF8) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 41
-(prop nil bBox ((401.5 239.5) (402.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (402.0 240.0) violations (dbid:00000245D7EBC968 dbid:00000245D7EBC8D8) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((149.5 47.5) (150.5 48.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (150.0 48.0) violations (dbid:00000249E89C1F20 dbid:00000249E89C1FE0) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 42
-(prop nil bBox ((401.5 143.5) (402.5 144.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (402.0 144.0) violations (dbid:00000245D7EC6048 dbid:00000245D7EC5F88) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((221.5 207.5) (222.5 208.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (222.0 208.0) violations (dbid:00000249E89B5E28 dbid:00000249E89B5EE8) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 43
-(prop nil bBox ((257.5 207.5) (258.5 208.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (258.0 208.0) violations (dbid:00000245D7EBD4B0 dbid:00000245D7EBD540) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((149.5 111.5) (150.5 112.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (150.0 112.0) violations (dbid:00000249E89BEF98 dbid:00000249E89BEED8) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 44
-(prop nil bBox ((293.5 7.5) (294.5 8.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (294.0 8.0) violations (dbid:00000245D7ECEDE0 dbid:00000245D7ECED20) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((185.5 143.5) (186.5 144.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (186.0 144.0) violations (dbid:00000249E89BAFF0 dbid:00000249E89B8C10) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 
 DRC 45
-(prop nil bBox ((78.628 19.132) (79.628 20.132)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (79.128 19.632) violations (dbid:00000245D7ECEFE0 dbid:00000245D780D8E8) type "DESIGN" source "NONE" fixed t parent dbid:00000245D575C6C0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+(prop nil bBox ((293.5 7.5) (294.5 8.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (294.0 8.0) violations (dbid:00000249E89C7F68 dbid:00000249E89C8028) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+
+DRC 46
+(prop nil bBox ((78.628 19.132) (79.628 20.132)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (79.128 19.632) violations (dbid:00000249E89C8228 dbid:00000249E8306548) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+
+DRC 47
+(prop nil bBox ((293.5 207.5) (294.5 208.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (294.0 208.0) violations (dbid:00000249E89B64C0 dbid:00000249E89B6430) type "DESIGN" source "NONE" fixed t parent dbid:00000249E6436470 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
 

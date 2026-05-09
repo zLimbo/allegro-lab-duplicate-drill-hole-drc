@@ -32,7 +32,7 @@ Main evidence files:
 - `docs/showcase_case_analysis.md`
 - `docs/lab_results.md`
 
-The current showcase contains 79 array cases plus one real demo-board through pin-via control. The latest DRC report contains 45 detailed entries, all `Duplicate Drill Hole`.
+The current showcase contains 81 array cases plus one real demo-board through pin-via control. The latest DRC report contains 47 detailed entries, all `Duplicate Drill Hole`.
 
 The board array has been packed to 8 visual columns. The generated board also turns on the main text/silkscreen visibility layers before saving:
 
@@ -141,6 +141,7 @@ Reported:
 - 2x2 staggered multi-drill vs identical 2x2 staggered multi-drill.
 - 2x2 non-staggered vs 2x2 staggered when rows/columns/clearance/drill diameter matched.
 - 1x2 diameter-0.25 multi-drill vs identical 1x2 diameter-0.25 multi-drill.
+- 1x2 and 2x2 cases where drill diameter and clearance differed but the derived member-center pitch matched.
 
 Not reported:
 
@@ -152,13 +153,14 @@ Not reported:
 - 1x2 vs 2x1 at the same padstack origin
 - 1x2 clearance-X 0.50 vs 1x2 clearance-X 0.60 at the same padstack origin
 - 2x2 clearance-Y 0.50 vs 2x2 clearance-Y 0.60 at the same padstack origin
-- 1x2 drill diameter 0.20 vs 1x2 drill diameter 0.25 at the same clearance and origin
+- 1x2 drill diameter 0.20 vs 1x2 drill diameter 0.25 at the same clearance and origin, because derived pitch differed
 
 Current interpretation:
 
 - Allegro appears to treat a multi-drill padstack as a parameter-level drill definition for DH.
 - It does not appear to expand multi-drill definitions into independent member-hole points for single-vs-multi or partial-overlap duplicate checks.
-- Same origin alone is not sufficient for multi-drill; rows/columns, row/column orientation, spacing/clearance, and drill diameter/derived pitch compatibility matter.
+- Same origin alone is not sufficient for multi-drill; rows/columns, row/column orientation, and derived member-center pitch compatibility matter.
+- Drill diameter and spacing/clearance are not independent suppressors in the tested circular cases; compensating them to preserve derived pitch still reports DH.
 - In the tested generated 2x2 circular case, the `staggered` flag difference did not suppress DH.
 
 ## Key Source Files

@@ -21,8 +21,8 @@ DRC setup:
 
 Observed report summary:
 
-- Total DRC errors: 45
-- Detailed DRC type: all 45 entries are `Duplicate Drill Hole`
+- Total DRC errors: 47
+- Detailed DRC type: all 47 entries are `Duplicate Drill Hole`
 - No Route Keepin, Route Keepout, Spacing, Physical, or Miscellaneous DRC entries remained in the exported report.
 
 ## Interpretation Rules Used In This Document
@@ -104,13 +104,15 @@ For multi-object cases, Allegro reports pairwise markers. For example, three dri
 | MDP2 | `(222, 32)` | Multi-drill row-clearance mismatch | 2x2 clearance-Y 0.50 vs 2x2 clearance-Y 0.60, same origin | No | Row clearance participates in multi-drill compatibility. |
 | MDP3 | `(258, 32)` | Multi-drill staggered same pattern | Two identical 2x2 staggered multi-drill padstacks, same origin | Yes | Matching staggered arrays report. |
 | MDP4 | `(294, 32)` | Multi-drill staggered mismatch | 2x2 non-staggered vs 2x2 staggered, same rows/columns/clearance and same origin | Yes | In this generated 2x2 case, the staggered flag did not suppress DH. |
-| MDP5 | `(330, 32)` | Multi-drill drill-diameter mismatch | 1x2 diameter 0.20 vs 1x2 diameter 0.25, same clearance and same origin | No | Drill diameter, and therefore derived pitch, participates in multi-drill compatibility. |
+| MDP5 | `(330, 32)` | Multi-drill derived-pitch mismatch | 1x2 diameter 0.20/clearance 0.50 vs 1x2 diameter 0.25/clearance 0.50, same origin | No | Same clearance but different derived pitch did not report. MDP12 separates this from drill diameter alone. |
 | MDP6 | `(366, 32)` | Multi-drill diameter control | Two identical 1x2 diameter-0.25 multi-drill padstacks, same origin | Yes | The diameter-0.25 multi-drill pattern reports against itself. |
 | MDP7 | `(402, 32)` | Multi-drill row/column swap | 1x2 vs 2x1, same clearance and same origin | No | Row/column orientation participates in multi-drill compatibility. |
 | MDP8 | `(150, 64)` | Multi-drill vs single, pitch-correct | 1x2 clearance-0.50 diameter-0.20 multi-drill vs diameter-0.20 single drill at `X+0.35` member center | No | Single-vs-multi did not report even when the single drill was placed at the derived member-hole pitch. |
 | MDP9 | `(186, 64)` | Multi-drill partial overlap, pitch-correct | 1x2 clearance-0.50 diameter-0.20 multi-drill vs same 1x2 shifted by derived pitch `X+0.70` | No | Partial member-hole overlap did not report even with pitch-correct placement. |
 | MDP10 | `(222, 64)` | Multi-drill vs single, pitch-correct | 2x2 clearance-0.50 diameter-0.20 multi-drill vs diameter-0.20 single drill at `X+0.35,Y+0.35` member center | No | Single-vs-multi did not report for a pitch-correct 2x2 member-hole placement. |
 | MDP11 | `(258, 64)` | Multi-drill partial overlap, pitch-correct | 2x2 clearance-0.50 diameter-0.20 multi-drill vs same 2x2 shifted by derived pitch `X+0.70` | No | Partial member-hole overlap did not report even with pitch-correct 2x2 placement. |
+| MDP12 | `(294, 64)` | Multi-drill same derived pitch | 1x2 diameter 0.20/clearance 0.50 vs 1x2 diameter 0.25/clearance 0.45, same origin | Yes | Drill diameter and clearance can differ when the derived column pitch remains the same. |
+| MDP13 | `(330, 64)` | Multi-drill same derived pitch | 2x2 diameter 0.20/clearance 0.50 vs 2x2 diameter 0.25/clearance 0.45, same origin | Yes | Drill diameter and both row/column clearances can differ when the derived member-center pitches remain the same. |
 | DO0 | `(150, 8)` | Drill offset | `+0.30` drill-offset padstack vs normal padstack at the same via origin | Yes | Same via/padstack instance origin reports even though the physical drill centers differ by the padstack drill offset. |
 | DO1 | `(186, 8)` | Drill offset | `+0.30` drill-offset padstack vs normal padstack shifted `X+0.30` so physical drill centers align | No | Matching physical drill centers did not report when via/padstack instance origins differed. |
 | DO2 | `(222, 8)` | Drill offset | Two `+0.30` drill-offset padstacks at the same via origin | Yes | Same via origin and same drill offset reports. |
@@ -162,10 +164,25 @@ The R10/M/MDP cases cover Allegro padstacks with `multiDrillData(rows columns cl
 - Separate padstack names with identical multi-drill parameters still report.
 - Multi-drill vs single-drill did not report, including pitch-correct placements at derived member-hole centers.
 - Identical multi-drill arrays shifted so that only a subset of member holes could overlap did not report, including pitch-correct partial-overlap placements.
-- Same-origin multi-drill arrays did not report when rows/columns, row/column orientation, column clearance, row clearance, or drill diameter differed.
+- Same-origin multi-drill arrays did not report when rows/columns, row/column orientation, or derived member-center pitch differed.
+- Drill diameter and spacing/clearance did not need to match independently when compensating changes preserved the derived pitch.
 - In the tested generated 2x2 circular case, a staggered-vs-non-staggered mismatch still reported; the staggered flag did not suppress DH by itself.
 
 Therefore, current evidence suggests Allegro treats a multi-drill padstack as a parameter-level drill definition for DH. It does not appear to expand multi-drill padstacks into independent drill-hole points for single-vs-multi or partial-overlap duplicate checks.
+
+For the tested circular array padstacks:
+
+| Parameter | Must Match For DH? | Evidence |
+|---|---|---|
+| Padstack name | No | MDP0 reports with different names and identical array geometry. |
+| Rows | Yes | R10C7 and MDP7 do not report when row/column geometry differs. |
+| Columns | Yes | MDP1 does not report for 1x2 vs 1x3. |
+| Row/column orientation | Yes | MDP7 does not report for 1x2 vs 2x1. |
+| Derived column pitch | Yes | M1/MDP5 do not report when derived X pitch differs; MDP12 reports when X pitch is restored. |
+| Derived row pitch | Yes | MDP2 does not report when derived Y pitch differs; MDP13 reports when X/Y pitches are restored. |
+| Drill diameter by itself | No | MDP12/MDP13 report with different drill diameters when derived pitch matches. |
+| Spacing/clearance by itself | No | MDP12/MDP13 report with different clearances when derived pitch matches. |
+| Staggered flag | No in tested 2x2 circular case | MDP4 reports for staggered vs non-staggered with the same rows/columns/pitch. |
 
 ## Current Boundary Model
 
