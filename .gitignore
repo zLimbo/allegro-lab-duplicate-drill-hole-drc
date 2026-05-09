@@ -9,3 +9,4 @@ master.tag
 signoise.run/
 scripts/__pycache__/
 *.pyc
+*.lck
