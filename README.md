@@ -1,13 +1,13 @@
 # Allegro Lab: Duplicate Drill Hole DRC
 
-本工程用于验证 Cadence Allegro Duplicate Drill Hole DRC 的真实判定边界。
+This repository is a local research project for characterizing Cadence Allegro's Duplicate Drill Hole DRC behavior.
 
 - Attribute: `DUP_DRILL_HOLE_VMODE`
-- DRC Code / Identifier: `DH`
-- Allegro 版本：`Allegro PCB Venture 24.1 S001 Windows SPB 64-bit Edition`
-- 本地 Cadence 路径：`C:\Cadence\SPB_24.1\tools\bin`
+- DRC code / identifier: `DH`
+- Tested Allegro version: `Allegro PCB Venture 24.1 S001 Windows SPB 64-bit Edition`
+- Local Cadence tool path used during testing: `C:\Cadence\SPB_24.1\tools\bin`
 
-当前项目已验证 Allegro 可通过 no-gui/batch 方式自动化执行：
+The project has verified that Allegro can be driven through no-GUI/batch execution for this workflow:
 
 ```powershell
 allegro.exe -expert -p . -nographic -s <script.scr> <board.brd>
@@ -15,24 +15,24 @@ dbdoctor.exe -drc_only -outfile <out.brd> <in.brd>
 report.exe -v drc <board.brd> <report.rpt>
 ```
 
-## 主要文件
+## Repository Contents
 
-- `docs/test_plan.md`：测试计划与判定逻辑。
-- `docs/automation_strategy.md`：自动化策略与已验证命令链路。
-- `docs/automated_verification_results.md`：自动化实测结果与结论。
-- `docs/showcase_case_analysis.md`：展示板中每个 case 的类型、结果与分析。
-- `matrix/duplicate_drill_hole_case_matrix.csv`：原始 case matrix。
-- `matrix/padstack_requirements.csv`：测试所需 padstack 清单。
-- `scripts/dh_showcase_board.il`：生成展示板的 Allegro SKILL 脚本。
-- `scripts/dh_showcase_board.scr`：展示板生成 replay script。
-- `scripts/run_drc_report.ps1`：调用 Cadence 命令行工具更新 DRC 并导出 report。
-- `scripts/parse_drc_report.py`：解析 Allegro DRC report 中 `DH` 记录。
-- `allegro/dh_duplicate_drill_showcase.drc_only.brd`：已生成 DRC 的展示板。
-- `reports/dh_duplicate_drill_showcase.drc.rpt`：展示板 DRC report。
-- `results/dh_showcase_objects.csv`：展示板对象坐标与说明。
-- `results/dh_duplicate_drill_showcase.parsed_dh.csv`：解析后的 DH 记录。
+- `docs/test_plan.md`: original test plan and target decision boundaries.
+- `docs/automation_strategy.md`: verified automation strategy and command chain.
+- `docs/automated_verification_results.md`: Chinese final verification summary.
+- `docs/showcase_case_analysis.md`: detailed per-case analysis for the generated showcase board.
+- `matrix/duplicate_drill_hole_case_matrix.csv`: original case matrix.
+- `matrix/padstack_requirements.csv`: padstack requirements.
+- `scripts/dh_showcase_board.il`: Allegro SKILL script that generates the showcase board.
+- `scripts/dh_showcase_board.scr`: Allegro replay script for board generation.
+- `scripts/run_drc_report.ps1`: PowerShell wrapper for `dbdoctor` and `report`.
+- `scripts/parse_drc_report.py`: parser for Duplicate Drill Hole entries in Allegro DRC reports.
+- `allegro/dh_duplicate_drill_showcase.drc_only.brd`: showcase board with regenerated DRC markers.
+- `reports/dh_duplicate_drill_showcase.drc.rpt`: exported DRC report for the showcase board.
+- `results/dh_showcase_objects.csv`: generated object map and case labels.
+- `results/dh_duplicate_drill_showcase.parsed_dh.csv`: parsed DH records.
 
-## 一键重跑展示板
+## Regenerate The Showcase Board
 
 ```powershell
 Copy-Item -LiteralPath 'C:\Cadence\SPB_24.1\share\pcb\examples\board_design\Cadence_Demo.brd' -Destination '.\allegro\dh_duplicate_drill_showcase.brd' -Force
@@ -41,9 +41,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run_drc_report.ps1
 python .\scripts\parse_drc_report.py .\reports\dh_duplicate_drill_showcase.drc.rpt --csv .\results\dh_duplicate_drill_showcase.parsed_dh.csv
 ```
 
-## 当前结论摘要
+## Current Boundary Model
 
-实测表明，Duplicate Drill Hole 的判定不要求 layer span 完全相同。更接近的模型是：
+The observed behavior is best modeled as:
 
 ```text
 report DH when:
@@ -52,4 +52,6 @@ report DH when:
   drill layer spans overlap with positive Z length
 ```
 
-目前观察到不影响 DH 的因素包括 padstack 名称、copper pad 大小、copper pad 形状、孔径、plating、round/slot、slot 尺寸、object type、net/no-net。
+Observed non-factors once those two conditions hold include padstack name, copper pad size, copper pad shape, drill diameter, plating, round/slot style, slot size, object type, net name, and no-net status.
+
+See `docs/showcase_case_analysis.md` for detailed per-case evidence.
