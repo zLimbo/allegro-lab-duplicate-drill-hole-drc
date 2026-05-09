@@ -166,16 +166,22 @@
   )
 )
 
-(defun dhs_make_multi_round_padstack (name rows cols clear_x clear_y pad_x pad_y)
-  (let (drill pad_list)
+(defun dhs_make_multi_round_padstack_ex (name rows cols clear_x clear_y pad_x pad_y drill_diameter staggered)
+  (let (drill pad_list md_data)
+    (setq md_data
+      (if staggered
+        (list rows cols clear_x clear_y "staggered")
+        (list rows cols clear_x clear_y)
+      )
+    )
     (setq drill
       (make_axlPadStackDrill
         ?holeType 'CIRCLE_DRILL
-        ?drillDiameter 0.20
+        ?drillDiameter drill_diameter
         ?plating 'PLATED
         ?figure 'CIRCLE
-        ?figureSize 0.20:0.20
-        ?multiDrillData (list rows cols clear_x clear_y)
+        ?figureSize drill_diameter:drill_diameter
+        ?multiDrillData md_data
       )
     )
     (setq pad_list nil)
@@ -184,6 +190,10 @@
     (setq pad_list (cons (make_axlPadStackPad ?layer "BOTTOM" ?type 'REGULAR ?figure 'OBLONG_X ?figureSize pad_x:pad_y) pad_list))
     (axlDBCreatePadStack name drill pad_list t)
   )
+)
+
+(defun dhs_make_multi_round_padstack (name rows cols clear_x clear_y pad_x pad_y)
+  (dhs_make_multi_round_padstack_ex name rows cols clear_x clear_y pad_x pad_y 0.20 nil)
 )
 
 (defun dhs_make_bb_padstack (name start_layer end_layer drill_diameter)
@@ -219,14 +229,21 @@
   (dhs_make_offset_drill_padstack "DHS_DRILL_OFF_XP030" 0.25 0.30 0.0)
   (dhs_make_offset_drill_padstack "DHS_DRILL_OFF_XM030" 0.25 -0.30 0.0)
   (dhs_make_round_padstack "DHS_RND_PTH_010" 0.10 'PLATED)
+  (dhs_make_round_padstack "DHS_RND_PTH_020" 0.20 'PLATED)
   (dhs_make_round_padstack "DHS_RND_PTH_050" 0.50 'PLATED)
   (dhs_make_round_padstack "DHS_RND_NPTH_025" 0.25 'NON_PLATED)
   (dhs_make_slot_padstack "DHS_SLOT_PTH_025X075" 0.25 0.75 'PLATED)
   (dhs_make_slot_padstack "DHS_SLOT_PTH_035X075" 0.35 0.75 'PLATED)
   (dhs_make_slot_padstack_y "DHS_SLOTY_PTH_025X075" 0.25 0.75 'PLATED)
   (dhs_make_multi_round_padstack "DHS_MD_1X2_C050" 1 2 0.50 0.50 1.05 0.55)
+  (dhs_make_multi_round_padstack "DHS_MD_1X2_C050_ALT" 1 2 0.50 0.50 1.05 0.55)
   (dhs_make_multi_round_padstack "DHS_MD_1X2_C060" 1 2 0.60 0.50 1.15 0.55)
+  (dhs_make_multi_round_padstack "DHS_MD_1X3_C050" 1 3 0.50 0.50 1.60 0.55)
+  (dhs_make_multi_round_padstack "DHS_MD_2X1_C050" 2 1 0.50 0.50 0.55 1.05)
   (dhs_make_multi_round_padstack "DHS_MD_2X2_C050" 2 2 0.50 0.50 1.05 1.05)
+  (dhs_make_multi_round_padstack "DHS_MD_2X2_CX050_CY060" 2 2 0.50 0.60 1.05 1.15)
+  (dhs_make_multi_round_padstack_ex "DHS_MD_2X2_C050_STAG" 2 2 0.50 0.50 1.05 1.05 0.20 t)
+  (dhs_make_multi_round_padstack_ex "DHS_MD_1X2_D025_C050" 1 2 0.50 0.50 1.10 0.60 0.25 nil)
   (dhs_make_bb_padstack "DHS_TOP_GND" "TOP" "GND" 0.25)
   (dhs_make_bb_padstack "DHS_TOP_INNER1" "TOP" "INNER1" 0.25)
   (dhs_make_bb_padstack "DHS_INNER1_BOTTOM" "INNER1" "BOTTOM" 0.25)
@@ -506,6 +523,18 @@
       (dhs_via_pair fp "M1" 4 11 "DHS_MD_1X2_C050" "DHS_MD_1X2_C060" nil nil "multi diff pitch same origin")
       (dhs_pad_pair_offset fp "M2" 5 11 "DHS_MD_2X2_C050" "DHS_MD_2X2_C050" 0.50 0.0 nil nil "multi 2x2 partial X")
       (dhs_pad_pair_offset fp "M3" 6 11 "DHS_MD_2X2_C050" "DHS_MD_2X2_C050" 0.25 0.25 nil nil "multi 2x2 half offset")
+      (dhs_xy_pair fp "MDP0" 150.0 32.0 "DHS_MD_1X2_C050" "DHS_MD_1X2_C050_ALT" 0.0 0.0 nil nil "multi same params diff name")
+      (dhs_xy_pair fp "MDP1" 186.0 32.0 "DHS_MD_1X2_C050" "DHS_MD_1X3_C050" 0.0 0.0 nil nil "multi cols differ")
+      (dhs_xy_pair fp "MDP2" 222.0 32.0 "DHS_MD_2X2_C050" "DHS_MD_2X2_CX050_CY060" 0.0 0.0 nil nil "multi row clearance differ")
+      (dhs_xy_pair fp "MDP3" 258.0 32.0 "DHS_MD_2X2_C050_STAG" "DHS_MD_2X2_C050_STAG" 0.0 0.0 nil nil "multi stagger same")
+      (dhs_xy_pair fp "MDP4" 294.0 32.0 "DHS_MD_2X2_C050" "DHS_MD_2X2_C050_STAG" 0.0 0.0 nil nil "multi stagger differ")
+      (dhs_xy_pair fp "MDP5" 330.0 32.0 "DHS_MD_1X2_C050" "DHS_MD_1X2_D025_C050" 0.0 0.0 nil nil "multi drill dia differ")
+      (dhs_xy_pair fp "MDP6" 366.0 32.0 "DHS_MD_1X2_D025_C050" "DHS_MD_1X2_D025_C050" 0.0 0.0 nil nil "multi dia control")
+      (dhs_xy_pair fp "MDP7" 402.0 32.0 "DHS_MD_1X2_C050" "DHS_MD_2X1_C050" 0.0 0.0 nil nil "multi rows cols swapped")
+      (dhs_xy_pair fp "MDP8" 150.0 64.0 "DHS_MD_1X2_C050" "DHS_RND_PTH_020" 0.35 0.0 nil nil "single at MD pitch member")
+      (dhs_xy_pair fp "MDP9" 186.0 64.0 "DHS_MD_1X2_C050" "DHS_MD_1X2_C050" 0.70 0.0 nil nil "multi partial pitch overlap")
+      (dhs_xy_pair fp "MDP10" 222.0 64.0 "DHS_MD_2X2_C050" "DHS_RND_PTH_020" 0.35 0.35 nil nil "single at 2x2 pitch member")
+      (dhs_xy_pair fp "MDP11" 258.0 64.0 "DHS_MD_2X2_C050" "DHS_MD_2X2_C050" 0.70 0.0 nil nil "2x2 partial pitch overlap")
       (dhs_xy_pair fp "DO0" 150.0 8.0 "DHS_DRILL_OFF_XP030" "DHS_RND_PTH_025" 0.0 0.0 "DHS_A" "DHS_A" "same via origin")
       (dhs_xy_pair fp "DO1" 186.0 8.0 "DHS_DRILL_OFF_XP030" "DHS_RND_PTH_025" 0.30 0.0 "DHS_A" "DHS_A" "NO DH: drill XY align")
       (dhs_xy_pair fp "DO2" 222.0 8.0 "DHS_DRILL_OFF_XP030" "DHS_DRILL_OFF_XP030" 0.0 0.0 "DHS_A" "DHS_A" "same drill offset")

@@ -6,7 +6,7 @@ Repository:
 
 - Local path: `D:\pcb\Duplicate Drill Hole DRC`
 - GitHub: `https://github.com/zLimbo/allegro-lab-duplicate-drill-hole-drc`
-- Latest pushed commit at handoff: `b3de623 Add multi-drill boundary cases`
+- Latest pushed commit at handoff: `Add multi-drill parameter cases`
 
 Cadence environment used:
 
@@ -32,7 +32,7 @@ Main evidence files:
 - `docs/showcase_case_analysis.md`
 - `docs/lab_results.md`
 
-The current showcase contains 67 array cases plus one real demo-board through pin-via control. The latest DRC report contains 41 detailed entries, all `Duplicate Drill Hole`.
+The current showcase contains 79 array cases plus one real demo-board through pin-via control. The latest DRC report contains 45 detailed entries, all `Duplicate Drill Hole`.
 
 The board array has been packed to 8 visual columns. The generated board also turns on the main text/silkscreen visibility layers before saving:
 
@@ -71,7 +71,7 @@ report DH when:
   and
   drill layer spans overlap with positive Z length
   and
-  for multi-drill padstacks, the multi-drill pattern definition also matches
+  for multi-drill padstacks, the compared multi-drill parameters are compatible
 ```
 
 Important span finding:
@@ -137,20 +137,29 @@ Reported:
 
 - 1x2 multi-drill vs identical 1x2 multi-drill at the same padstack origin.
 - 2x2 multi-drill vs identical 2x2 multi-drill at the same padstack origin.
+- 1x2 multi-drill vs a separate padstack name with identical rows/columns/clearance/drill diameter.
+- 2x2 staggered multi-drill vs identical 2x2 staggered multi-drill.
+- 2x2 non-staggered vs 2x2 staggered when rows/columns/clearance/drill diameter matched.
+- 1x2 diameter-0.25 multi-drill vs identical 1x2 diameter-0.25 multi-drill.
 
 Not reported:
 
 - multi-drill vs single drill at the padstack origin
-- multi-drill vs single drill offset to a nominal member-hole location
-- identical multi-drill arrays shifted so only a subset of member holes could overlap
+- multi-drill vs single drill offset to a derived-pitch member-hole center
+- identical multi-drill arrays shifted so only a subset of member holes could overlap, including derived-pitch partial overlap
 - 2x2 vs 1x2 at the same padstack origin
-- 1x2 pitch-0.50 vs 1x2 pitch-0.60 at the same padstack origin
+- 1x2 vs 1x3 at the same padstack origin
+- 1x2 vs 2x1 at the same padstack origin
+- 1x2 clearance-X 0.50 vs 1x2 clearance-X 0.60 at the same padstack origin
+- 2x2 clearance-Y 0.50 vs 2x2 clearance-Y 0.60 at the same padstack origin
+- 1x2 drill diameter 0.20 vs 1x2 drill diameter 0.25 at the same clearance and origin
 
 Current interpretation:
 
-- Allegro appears to treat a multi-drill padstack as a pattern-level drill definition for DH.
+- Allegro appears to treat a multi-drill padstack as a parameter-level drill definition for DH.
 - It does not appear to expand multi-drill definitions into independent member-hole points for single-vs-multi or partial-overlap duplicate checks.
-- Same origin alone is not sufficient for multi-drill; row/column count and pitch/pattern compatibility matter.
+- Same origin alone is not sufficient for multi-drill; rows/columns, row/column orientation, spacing/clearance, and drill diameter/derived pitch compatibility matter.
+- In the tested generated 2x2 circular case, the `staggered` flag difference did not suppress DH.
 
 ## Key Source Files
 
@@ -191,7 +200,6 @@ Useful next lab directions:
   Physical `Pad/Pad Direct Connect` is enabled with
   `allow_padconnect = NOT_ALLOWED`; it reports for same-net offset via overlap,
   but not for the tested same-net duplicate-drill pairs.
-- Staggered multi-drill arrays.
 - Multi-drill definitions involving slot holes, if Allegro supports them in the required mode.
 - Mixed plating multi-drill edge cases, if API/library constraints allow.
 - Production-library mechanical mounting-hole symbols.

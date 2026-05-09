@@ -21,8 +21,8 @@ DRC setup:
 
 Observed report summary:
 
-- Total DRC errors: 41
-- Detailed DRC type: all 41 entries are `Duplicate Drill Hole`
+- Total DRC errors: 45
+- Detailed DRC type: all 45 entries are `Duplicate Drill Hole`
 - No Route Keepin, Route Keepout, Spacing, Physical, or Miscellaneous DRC entries remained in the exported report.
 
 ## Interpretation Rules Used In This Document
@@ -89,16 +89,28 @@ For multi-object cases, Allegro reports pairwise markers. For example, three dri
 | R9C4 | `(186, 48)` | Cross-slot tiny offset | X-slot vs Y-slot, second origin at `X+0.001` | No | The same `0.001` stored-coordinate separation avoided DH for cross-slot drills. |
 | R10C0 | `(222, 48)` | Multi-drill same pattern | 1x2 multi-drill via vs same 1x2 multi-drill via, same origin | Yes | Matching multi-drill pattern and origin reports one DH marker. |
 | R10C1 | `(258, 48)` | Multi-drill vs single | 1x2 multi-drill via vs single round via at padstack origin | No | A single drill at the multi-drill padstack origin did not match either member hole. |
-| R10C2 | `(294, 48)` | Multi-drill vs single | 1x2 multi-drill via vs single round via offset to the nominal right member hole | No | Single-vs-multi local hole alignment did not report. |
-| R10C3 | `(330, 48)` | Multi-drill vs single | 1x2 multi-drill via vs single round via offset to the nominal left member hole | No | Single-vs-multi local hole alignment did not report. |
-| R10C4 | `(366, 48)` | Multi-drill partial overlap | 1x2 multi-drill via vs same 1x2 multi-drill via shifted by one pitch | No | Partial multi-drill hole overlap did not report. |
-| R10C5 | `(402, 48)` | Multi-drill offset control | 1x2 multi-drill via vs same 1x2 multi-drill via shifted by half pitch | No | Offset multi-drill patterns did not report. |
-| R10C6 | `(150, 16)` | Multi-drill vs single | 2x2 multi-drill via vs single round via offset to a nominal corner member hole | No | Single-vs-multi local hole alignment did not report for a 2x2 pattern. |
+| R10C2 | `(294, 48)` | Multi-drill vs single | 1x2 multi-drill via vs single round via offset by `X+0.25` | No | Clearance-scale offset probe did not report. Pitch-correct member alignment is covered by MDP8. |
+| R10C3 | `(330, 48)` | Multi-drill vs single | 1x2 multi-drill via vs single round via offset by `X-0.25` | No | Clearance-scale offset probe did not report. Pitch-correct member alignment is covered by MDP8. |
+| R10C4 | `(366, 48)` | Multi-drill partial overlap | 1x2 multi-drill via vs same 1x2 multi-drill via shifted by `X+0.50` | No | Clearance-scale offset probe did not report. Pitch-correct partial overlap is covered by MDP9. |
+| R10C5 | `(402, 48)` | Multi-drill offset control | 1x2 multi-drill via vs same 1x2 multi-drill via shifted by `X+0.25` | No | Offset multi-drill patterns did not report. |
+| R10C6 | `(150, 16)` | Multi-drill vs single | 2x2 multi-drill via vs single round via offset by `X+0.25,Y+0.25` | No | Clearance-scale offset probe did not report. Pitch-correct member alignment is covered by MDP10. |
 | R10C7 | `(186, 16)` | Multi-drill pattern mismatch | 2x2 multi-drill via vs 1x2 multi-drill via, same origin | No | Same origin alone was not enough when multi-drill pattern shape differed. |
 | M0 | `(222, 16)` | Multi-drill same pattern | 2x2 multi-drill via vs same 2x2 multi-drill via, same origin | Yes | Matching 2x2 multi-drill pattern and origin reports one DH marker. |
-| M1 | `(258, 16)` | Multi-drill pitch mismatch | 1x2 pitch-0.50 multi-drill via vs 1x2 pitch-0.60 multi-drill via, same origin | No | Same origin and same row/column count did not report when pitch differed. |
-| M2 | `(294, 16)` | Multi-drill partial overlap | 2x2 multi-drill via vs same 2x2 multi-drill via shifted by one X pitch | No | Partial overlap of a multi-drill array did not report. |
+| M1 | `(258, 16)` | Multi-drill column-clearance mismatch | 1x2 clearance-X 0.50 multi-drill via vs 1x2 clearance-X 0.60 multi-drill via, same origin | No | Same origin and same row/column count did not report when column clearance differed. |
+| M2 | `(294, 16)` | Multi-drill partial overlap | 2x2 multi-drill via vs same 2x2 multi-drill via shifted by `X+0.50` | No | Clearance-scale offset probe did not report. Pitch-correct partial overlap is covered by MDP11. |
 | M3 | `(330, 16)` | Multi-drill offset control | 2x2 multi-drill via vs same 2x2 multi-drill via shifted by half pitch in X/Y | No | Offset 2x2 multi-drill patterns did not report. |
+| MDP0 | `(150, 32)` | Multi-drill same parameters | 1x2 clearance-X/Y 0.50 multi-drill vs separate padstack with identical parameters, same origin | Yes | Padstack name does not suppress DH when multi-drill parameters match. |
+| MDP1 | `(186, 32)` | Multi-drill columns mismatch | 1x2 vs 1x3 multi-drill, same clearance and same origin | No | Number of columns participates in multi-drill compatibility. |
+| MDP2 | `(222, 32)` | Multi-drill row-clearance mismatch | 2x2 clearance-Y 0.50 vs 2x2 clearance-Y 0.60, same origin | No | Row clearance participates in multi-drill compatibility. |
+| MDP3 | `(258, 32)` | Multi-drill staggered same pattern | Two identical 2x2 staggered multi-drill padstacks, same origin | Yes | Matching staggered arrays report. |
+| MDP4 | `(294, 32)` | Multi-drill staggered mismatch | 2x2 non-staggered vs 2x2 staggered, same rows/columns/clearance and same origin | Yes | In this generated 2x2 case, the staggered flag did not suppress DH. |
+| MDP5 | `(330, 32)` | Multi-drill drill-diameter mismatch | 1x2 diameter 0.20 vs 1x2 diameter 0.25, same clearance and same origin | No | Drill diameter, and therefore derived pitch, participates in multi-drill compatibility. |
+| MDP6 | `(366, 32)` | Multi-drill diameter control | Two identical 1x2 diameter-0.25 multi-drill padstacks, same origin | Yes | The diameter-0.25 multi-drill pattern reports against itself. |
+| MDP7 | `(402, 32)` | Multi-drill row/column swap | 1x2 vs 2x1, same clearance and same origin | No | Row/column orientation participates in multi-drill compatibility. |
+| MDP8 | `(150, 64)` | Multi-drill vs single, pitch-correct | 1x2 clearance-0.50 diameter-0.20 multi-drill vs diameter-0.20 single drill at `X+0.35` member center | No | Single-vs-multi did not report even when the single drill was placed at the derived member-hole pitch. |
+| MDP9 | `(186, 64)` | Multi-drill partial overlap, pitch-correct | 1x2 clearance-0.50 diameter-0.20 multi-drill vs same 1x2 shifted by derived pitch `X+0.70` | No | Partial member-hole overlap did not report even with pitch-correct placement. |
+| MDP10 | `(222, 64)` | Multi-drill vs single, pitch-correct | 2x2 clearance-0.50 diameter-0.20 multi-drill vs diameter-0.20 single drill at `X+0.35,Y+0.35` member center | No | Single-vs-multi did not report for a pitch-correct 2x2 member-hole placement. |
+| MDP11 | `(258, 64)` | Multi-drill partial overlap, pitch-correct | 2x2 clearance-0.50 diameter-0.20 multi-drill vs same 2x2 shifted by derived pitch `X+0.70` | No | Partial member-hole overlap did not report even with pitch-correct 2x2 placement. |
 | DO0 | `(150, 8)` | Drill offset | `+0.30` drill-offset padstack vs normal padstack at the same via origin | Yes | Same via/padstack instance origin reports even though the physical drill centers differ by the padstack drill offset. |
 | DO1 | `(186, 8)` | Drill offset | `+0.30` drill-offset padstack vs normal padstack shifted `X+0.30` so physical drill centers align | No | Matching physical drill centers did not report when via/padstack instance origins differed. |
 | DO2 | `(222, 8)` | Drill offset | Two `+0.30` drill-offset padstacks at the same via origin | Yes | Same via origin and same drill offset reports. |
@@ -143,15 +155,17 @@ Therefore, for these generated via padstacks, Allegro 24.1 Duplicate Drill Hole 
 
 ## Multi-Drill Array Conclusion
 
-The R10/M cases cover Allegro padstacks with `multiDrillData`:
+The R10/M/MDP cases cover Allegro padstacks with `multiDrillData(rows columns clearanceX clearanceY ["staggered"])`.
 
 - Identical 1x2 multi-drill padstacks at the same padstack origin report one DH marker.
 - Identical 2x2 multi-drill padstacks at the same padstack origin report one DH marker.
-- Multi-drill vs single-drill did not report, even when the single via was offset to a nominal member-hole location.
-- Identical multi-drill arrays shifted so that only a subset of member holes could overlap did not report.
-- Same-origin multi-drill arrays with different pattern shape, or the same 1x2 shape but different pitch, did not report.
+- Separate padstack names with identical multi-drill parameters still report.
+- Multi-drill vs single-drill did not report, including pitch-correct placements at derived member-hole centers.
+- Identical multi-drill arrays shifted so that only a subset of member holes could overlap did not report, including pitch-correct partial-overlap placements.
+- Same-origin multi-drill arrays did not report when rows/columns, row/column orientation, column clearance, row clearance, or drill diameter differed.
+- In the tested generated 2x2 circular case, a staggered-vs-non-staggered mismatch still reported; the staggered flag did not suppress DH by itself.
 
-Therefore, current evidence suggests Allegro treats a multi-drill padstack as a pattern-level drill definition for DH. It does not appear to expand multi-drill padstacks into independent drill-hole points for single-vs-multi or partial-overlap duplicate checks.
+Therefore, current evidence suggests Allegro treats a multi-drill padstack as a parameter-level drill definition for DH. It does not appear to expand multi-drill padstacks into independent drill-hole points for single-vs-multi or partial-overlap duplicate checks.
 
 ## Current Boundary Model
 
@@ -163,7 +177,7 @@ report DH when:
   and
   drill layer spans overlap with positive Z length
   and
-  for multi-drill padstacks, the multi-drill pattern definition also matches
+  for multi-drill padstacks, the compared multi-drill parameters are compatible
 ```
 
 Observed non-factors once those two conditions hold:
@@ -184,7 +198,7 @@ Observed suppressors:
 - Stored XY separation large enough to remain distinct.
 - Drill-body overlap without stored drill-origin equality.
 - Multi-drill partial member-hole overlap without matching padstack origin/pattern.
-- Multi-drill pattern mismatch, including pitch mismatch.
+- Multi-drill parameter mismatch for rows/columns, row/column orientation, clearance, or drill diameter.
 - Disjoint drill layer spans.
 - Endpoint-only layer-span contact.
 
@@ -192,6 +206,6 @@ Observed suppressors:
 
 - The exact internal coordinate quantum is not formally derived from Cadence documentation. Results should be described as database-coordinate behavior, not arbitrary floating-point equality.
 - Slot orientation coverage now includes generated X/Y padstack figures, but arbitrary rotated slots from production libraries were not exhaustively swept.
-- Multi-drill coverage uses generated circular PTH multi-drill padstacks with 1x2 and 2x2 arrays; staggered arrays and mixed slot multi-drill definitions were not swept.
+- Multi-drill coverage uses generated circular PTH multi-drill padstacks with 1x2, 1x3, 2x1, and 2x2 arrays; mixed slot multi-drill definitions were not swept.
 - A company-library production mounting-hole symbol may still deserve a separate local-library case. The current coverage includes NPTH padstacks and package/real-pin objects.
 - Results are from Cadence Allegro PCB Venture 24.1 S001 on this local setup and the copied Cadence demo board stackup.
