@@ -1,4 +1,8 @@
+<a id="english"></a>
+
 # Allegro Lab: Duplicate Drill Hole DRC
+
+[English](#english) | [中文](#中文)
 
 This repository is a local research project for characterizing Cadence Allegro's Duplicate Drill Hole DRC behavior.
 
@@ -58,7 +62,11 @@ See `docs/showcase_case_analysis.md` for detailed per-case evidence.
 
 ---
 
-# Allegro Lab: Duplicate Drill Hole DRC 中文说明
+<a id="中文"></a>
+
+# Allegro Lab: Duplicate Drill Hole DRC
+
+[English](#english) | [中文](#中文)
 
 本仓库用于调研 Cadence Allegro 的 Duplicate Drill Hole DRC 真实判定边界。
 
