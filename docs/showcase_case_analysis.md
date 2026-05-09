@@ -21,8 +21,8 @@ DRC setup:
 
 Observed report summary:
 
-- Total DRC errors: 34
-- Detailed DRC type: all 34 entries are `Duplicate Drill Hole`
+- Total DRC errors: 36
+- Detailed DRC type: all 36 entries are `Duplicate Drill Hole`
 - No Route Keepin, Route Keepout, Spacing, Physical, or Miscellaneous DRC entries remained in the exported report.
 
 ## Interpretation Rules Used In This Document
@@ -77,6 +77,16 @@ For multi-object cases, Allegro reports pairwise markers. For example, three dri
 | R7C2 | `(274, -26)` | Pad size + net | Small pad vs large pad, different nets | Yes | Pad size and net mismatch together do not suppress DH. |
 | R7C3 | `(326, -26)` | Pad shape + no-net | Square pad vs oblong pad, both no-net | Yes | Pad shape mismatch and no-net status together do not suppress DH. |
 | R7C4 | `(378, -26)` | XY negative control | Same via pair, `X+0.001` offset | No | Reconfirms that this offset avoids DH in the showcase board. |
+| R8C0 | `(170, -64)` | Slot orientation | X-oriented slot vs Y-oriented slot, same origin | Yes | Slot orientation/figure direction does not suppress DH when origins/spans match. |
+| R8C1 | `(222, -64)` | Slot body overlap | Same X-slot pair, second origin at `X+0.20` | No | Overlapping slot bodies did not report when drill origins differ. |
+| R8C2 | `(274, -64)` | Slot endpoint/body probe | Same X-slot pair, second origin at `X+0.50` | No | Near-end or partial slot geometry overlap did not report without origin equality. |
+| R8C3 | `(326, -64)` | Slot separation control | Same X-slot pair, second origin at `X+0.80` | No | Separated slot bodies do not report. |
+| R8C4 | `(378, -64)` | Round in slot body | X-slot plus round drill at `X+0.20` | No | A round drill located inside the slot body did not report without origin equality. |
+| R9C0 | `(170, -102)` | Round near slot end | X-slot plus round drill at `X+0.50` | No | Slot/round geometric contact near the slot end did not report without origin equality. |
+| R9C1 | `(222, -102)` | Round in Y-slot body | Y-slot plus round drill at `Y+0.20` | No | The same origin rule held for a Y-oriented slot probe. |
+| R9C2 | `(274, -102)` | Cross-slot offset | X-slot vs Y-slot, second origin at `X+0.20,Y+0.20` | No | Cross-slot body overlap did not report when origins differ. |
+| R9C3 | `(326, -102)` | Cross-slot same origin | X-slot vs Y-slot, same origin | Yes | Cross-slot orientation mismatch still reports when origins/spans match. |
+| R9C4 | `(378, -102)` | Cross-slot tiny offset | X-slot vs Y-slot, second origin at `X+0.001` | No | The same `0.001` stored-coordinate separation avoided DH for cross-slot drills. |
 | PIN-A | `(79.128, 19.632)` | Demo-board real pin | Existing demo through pin `U37.4` vs via | Yes | A real design through pin and a via can report DH. |
 
 ## Pad-Geometry Conclusion
@@ -91,6 +101,18 @@ The new R6/R7 cases isolate copper pad geometry while keeping the drill diameter
 - Per-layer pad geometry swaps.
 
 Therefore, for implementing a Duplicate Drill Hole equivalent, copper pad size and copper pad shape should not be part of the duplicate key. They can be stored as diagnostic context, but the decision should be based on drill-bearing object coordinate and drill-span overlap.
+
+## Drill-Shape Geometry Conclusion
+
+The R8/R9 cases separate drill origin equality from drill-body geometric overlap:
+
+- X-slot vs Y-slot at the same origin reports DH.
+- X-slot vs Y-slot at the same origin reports even though the slot directions differ.
+- Slot-vs-slot pairs with overlapping bodies but different origins did not report.
+- Round drills placed inside or near a slot body did not report when the round drill origin differed from the slot origin.
+- A `0.001` coordinate offset suppressed a cross-slot pair, matching the earlier round-via offset probe.
+
+Therefore, the observed DH decision is not based on polygon/oval drill-shape intersection. For an Allegro-like implementation, treat slot drills by their effective drill origin and layer span; record shape, orientation, and size as diagnostic details, not as duplicate-key fields.
 
 ## Current Boundary Model
 
@@ -112,18 +134,20 @@ Observed non-factors once those two conditions hold:
 - Plating.
 - Round vs slot drill style.
 - Slot size.
+- Slot orientation/figure direction.
 - Object type among via, package pin, and real through pin.
 - Net name, including no-net cases.
 
 Observed suppressors:
 
 - Stored XY separation large enough to remain distinct.
+- Drill-body overlap without stored drill-origin equality.
 - Disjoint drill layer spans.
 - Endpoint-only layer-span contact.
 
 ## Residual Limits
 
 - The exact internal coordinate quantum is not formally derived from Cadence documentation. Results should be described as database-coordinate behavior, not arbitrary floating-point equality.
-- Slot rotation/orientation variants were not exhaustively swept; current slot tests use the generated slot padstack orientation.
+- Slot orientation coverage now includes generated X/Y padstack figures, but arbitrary rotated slots from production libraries were not exhaustively swept.
 - A company-library production mounting-hole symbol may still deserve a separate local-library case. The current coverage includes NPTH padstacks and package/real-pin objects.
 - Results are from Cadence Allegro PCB Venture 24.1 S001 on this local setup and the copied Cadence demo board stackup.

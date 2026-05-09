@@ -124,6 +124,27 @@
   )
 )
 
+(defun dhs_make_slot_padstack_y (name slot_width slot_height plating)
+  (let (drill pad_list pad_x pad_y)
+    (setq pad_x (plus slot_width 0.25))
+    (setq pad_y (plus slot_height 0.25))
+    (setq drill
+      (make_axlPadStackDrill
+        ?holeType 'OVAL_SLOT
+        ?slotSize (list slot_width slot_height)
+        ?plating plating
+        ?figure 'OBLONG_Y
+        ?figureSize slot_width:slot_height
+      )
+    )
+    (setq pad_list nil)
+    (setq pad_list (cons (make_axlPadStackPad ?layer "TOP" ?type 'REGULAR ?figure 'OBLONG_Y ?figureSize pad_x:pad_y) pad_list))
+    (setq pad_list (cons (make_axlPadStackPad ?layer "DEFAULT_INTERNAL" ?type 'REGULAR ?figure 'OBLONG_Y ?figureSize pad_x:pad_y) pad_list))
+    (setq pad_list (cons (make_axlPadStackPad ?layer "BOTTOM" ?type 'REGULAR ?figure 'OBLONG_Y ?figureSize pad_x:pad_y) pad_list))
+    (axlDBCreatePadStack name drill pad_list t)
+  )
+)
+
 (defun dhs_make_bb_padstack (name start_layer end_layer drill_diameter)
   (let (drill pad_list pad_size)
     (setq pad_size (plus drill_diameter 0.25))
@@ -159,6 +180,7 @@
   (dhs_make_round_padstack "DHS_RND_NPTH_025" 0.25 'NON_PLATED)
   (dhs_make_slot_padstack "DHS_SLOT_PTH_025X075" 0.25 0.75 'PLATED)
   (dhs_make_slot_padstack "DHS_SLOT_PTH_035X075" 0.35 0.75 'PLATED)
+  (dhs_make_slot_padstack_y "DHS_SLOTY_PTH_025X075" 0.25 0.75 'PLATED)
   (dhs_make_bb_padstack "DHS_TOP_GND" "TOP" "GND" 0.25)
   (dhs_make_bb_padstack "DHS_TOP_INNER1" "TOP" "INNER1" 0.25)
   (dhs_make_bb_padstack "DHS_INNER1_BOTTOM" "INNER1" "BOTTOM" 0.25)
@@ -200,6 +222,20 @@
     (dhs_text cell_id x (plus y 8.0))
     (dhs_text label x (plus y 5.0))
     (fprintf fp "%s,%g,%g,DHS_RND_PTH_025,DHS_RND_PTH_025,%L,%L,%s\n" cell_id x y via_a via_b label)
+    (list via_a via_b)
+  )
+)
+
+(defun dhs_pad_pair_offset (fp cell_id col row pad_a pad_b dx dy net_a net_b label)
+  (let (xy x y via_a via_b)
+    (setq xy (dhs_cell_xy col row))
+    (setq x (car xy))
+    (setq y (cadr xy))
+    (setq via_a (axlDBCreateVia pad_a x:y net_a))
+    (setq via_b (axlDBCreateVia pad_b (plus x dx):(plus y dy) net_b))
+    (dhs_text cell_id x (plus y 8.0))
+    (dhs_text label x (plus y 5.0))
+    (fprintf fp "%s,%g,%g,%s,%s,%L,%L,%s\n" cell_id x y pad_a pad_b via_a via_b label)
     (list via_a via_b)
   )
 )
@@ -370,6 +406,18 @@
       (dhs_via_pair fp "R7C2" 2 7 "DHS_PAD_SMALL_SAME_DRILL" "DHS_PAD_LARGE_SAME_DRILL" "DHS_A" "DHS_B" "diff pad size diff net")
       (dhs_via_pair fp "R7C3" 3 7 "DHS_PAD_SQUARE_SAME_DRILL" "DHS_PAD_OBLONG_SAME_DRILL" nil nil "pad shape no-net")
       (dhs_offset_pair fp "R7C4" 4 7 0.001 0.0 "pad control X+0.001")
+
+      (dhs_via_pair fp "R8C0" 0 8 "DHS_SLOT_PTH_025X075" "DHS_SLOTY_PTH_025X075" nil nil "slot X vs Y same XY")
+      (dhs_pad_pair_offset fp "R8C1" 1 8 "DHS_SLOT_PTH_025X075" "DHS_SLOT_PTH_025X075" 0.20 0.0 nil nil "slot overlap X+0.20")
+      (dhs_pad_pair_offset fp "R8C2" 2 8 "DHS_SLOT_PTH_025X075" "DHS_SLOT_PTH_025X075" 0.50 0.0 nil nil "slot near end X+0.50")
+      (dhs_pad_pair_offset fp "R8C3" 3 8 "DHS_SLOT_PTH_025X075" "DHS_SLOT_PTH_025X075" 0.80 0.0 nil nil "slot separated X+0.80")
+      (dhs_pad_pair_offset fp "R8C4" 4 8 "DHS_SLOT_PTH_025X075" "DHS_RND_PTH_025" 0.20 0.0 nil nil "round in slot body")
+
+      (dhs_pad_pair_offset fp "R9C0" 0 9 "DHS_SLOT_PTH_025X075" "DHS_RND_PTH_025" 0.50 0.0 nil nil "round near slot end")
+      (dhs_pad_pair_offset fp "R9C1" 1 9 "DHS_SLOTY_PTH_025X075" "DHS_RND_PTH_025" 0.0 0.20 nil nil "round in slotY body")
+      (dhs_pad_pair_offset fp "R9C2" 2 9 "DHS_SLOT_PTH_025X075" "DHS_SLOTY_PTH_025X075" 0.20 0.20 nil nil "cross slots offset")
+      (dhs_pad_pair_offset fp "R9C3" 3 9 "DHS_SLOT_PTH_025X075" "DHS_SLOTY_PTH_025X075" 0.0 0.0 nil nil "cross slots same origin")
+      (dhs_pad_pair_offset fp "R9C4" 4 9 "DHS_SLOT_PTH_025X075" "DHS_SLOTY_PTH_025X075" 0.001 0.0 nil nil "cross slot X+0.001")
       (dhs_real_pin_via_case fp "PIN-A" 0 3 "real pin-via")
       (close fp)
     )
