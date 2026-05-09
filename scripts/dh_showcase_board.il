@@ -145,6 +145,26 @@
   )
 )
 
+(defun dhs_make_multi_round_padstack (name rows cols clear_x clear_y pad_x pad_y)
+  (let (drill pad_list)
+    (setq drill
+      (make_axlPadStackDrill
+        ?holeType 'CIRCLE_DRILL
+        ?drillDiameter 0.20
+        ?plating 'PLATED
+        ?figure 'CIRCLE
+        ?figureSize 0.20:0.20
+        ?multiDrillData (list rows cols clear_x clear_y)
+      )
+    )
+    (setq pad_list nil)
+    (setq pad_list (cons (make_axlPadStackPad ?layer "TOP" ?type 'REGULAR ?figure 'OBLONG_X ?figureSize pad_x:pad_y) pad_list))
+    (setq pad_list (cons (make_axlPadStackPad ?layer "DEFAULT_INTERNAL" ?type 'REGULAR ?figure 'OBLONG_X ?figureSize pad_x:pad_y) pad_list))
+    (setq pad_list (cons (make_axlPadStackPad ?layer "BOTTOM" ?type 'REGULAR ?figure 'OBLONG_X ?figureSize pad_x:pad_y) pad_list))
+    (axlDBCreatePadStack name drill pad_list t)
+  )
+)
+
 (defun dhs_make_bb_padstack (name start_layer end_layer drill_diameter)
   (let (drill pad_list pad_size)
     (setq pad_size (plus drill_diameter 0.25))
@@ -181,6 +201,9 @@
   (dhs_make_slot_padstack "DHS_SLOT_PTH_025X075" 0.25 0.75 'PLATED)
   (dhs_make_slot_padstack "DHS_SLOT_PTH_035X075" 0.35 0.75 'PLATED)
   (dhs_make_slot_padstack_y "DHS_SLOTY_PTH_025X075" 0.25 0.75 'PLATED)
+  (dhs_make_multi_round_padstack "DHS_MD_1X2_C050" 1 2 0.50 0.50 1.05 0.55)
+  (dhs_make_multi_round_padstack "DHS_MD_1X2_C060" 1 2 0.60 0.50 1.15 0.55)
+  (dhs_make_multi_round_padstack "DHS_MD_2X2_C050" 2 2 0.50 0.50 1.05 1.05)
   (dhs_make_bb_padstack "DHS_TOP_GND" "TOP" "GND" 0.25)
   (dhs_make_bb_padstack "DHS_TOP_INNER1" "TOP" "INNER1" 0.25)
   (dhs_make_bb_padstack "DHS_INNER1_BOTTOM" "INNER1" "BOTTOM" 0.25)
@@ -195,7 +218,16 @@
 )
 
 (defun dhs_cell_xy (col row)
-  (list (plus 170.0 (times col 52.0)) (difference 240.0 (times row 38.0)))
+  (let (idx packed_col packed_row)
+    (setq idx (plus col (times row 5)))
+    (setq packed_row 0)
+    (while (greaterp idx 7)
+      (setq idx (difference idx 8))
+      (setq packed_row (plus packed_row 1))
+    )
+    (setq packed_col idx)
+    (list (plus 150.0 (times packed_col 36.0)) (difference 240.0 (times packed_row 32.0)))
+  )
 )
 
 (defun dhs_via_pair (fp cell_id col row pad_a pad_b net_a net_b label)
@@ -342,9 +374,18 @@
 )
 
 (defun dhs_header ()
-  (dhs_text_left "Duplicate Drill Hole DRC Showcase - only Duplicate_Drill_Hole mode enabled" 148.0 268.0)
-  (dhs_text_left "Grid labels show case type. Open DRC report/markers to inspect pairs." 148.0 262.0)
-  (dhs_text_left "Important: exact span equality is NOT required; overlapping drill spans can report." 148.0 256.0)
+  (dhs_text_left "Duplicate Drill Hole DRC Showcase - only Duplicate_Drill_Hole mode enabled" 130.0 268.0)
+  (dhs_text_left "Grid labels show case type. Physical layout is packed to 8 columns." 130.0 262.0)
+  (dhs_text_left "Important: exact span equality is NOT required; overlapping drill spans can report." 130.0 256.0)
+)
+
+(defun dhs_show_text_layers ()
+  axlVisibleLayer("BOARD GEOMETRY/NOTES" t)
+  axlVisibleLayer("REF DES/SILKSCREEN_TOP" t)
+  axlVisibleLayer("REF DES/SILKSCREEN_BOTTOM" t)
+  axlVisibleLayer("PACKAGE GEOMETRY/SILKSCREEN_TOP" t)
+  axlVisibleLayer("PACKAGE GEOMETRY/SILKSCREEN_BOTTOM" t)
+  axlVisibleUpdate(t)
 )
 
 (defun dhs_main (save_path log_path)
@@ -418,11 +459,25 @@
       (dhs_pad_pair_offset fp "R9C2" 2 9 "DHS_SLOT_PTH_025X075" "DHS_SLOTY_PTH_025X075" 0.20 0.20 nil nil "cross slots offset")
       (dhs_pad_pair_offset fp "R9C3" 3 9 "DHS_SLOT_PTH_025X075" "DHS_SLOTY_PTH_025X075" 0.0 0.0 nil nil "cross slots same origin")
       (dhs_pad_pair_offset fp "R9C4" 4 9 "DHS_SLOT_PTH_025X075" "DHS_SLOTY_PTH_025X075" 0.001 0.0 nil nil "cross slot X+0.001")
+
+      (dhs_via_pair fp "R10C0" 0 10 "DHS_MD_1X2_C050" "DHS_MD_1X2_C050" nil nil "multi 1x2 same origin")
+      (dhs_via_pair fp "R10C1" 1 10 "DHS_MD_1X2_C050" "DHS_RND_PTH_025" nil nil "multi 1x2 vs center")
+      (dhs_pad_pair_offset fp "R10C2" 2 10 "DHS_MD_1X2_C050" "DHS_RND_PTH_025" 0.25 0.0 nil nil "single at MD right")
+      (dhs_pad_pair_offset fp "R10C3" 3 10 "DHS_MD_1X2_C050" "DHS_RND_PTH_025" -0.25 0.0 nil nil "single at MD left")
+      (dhs_pad_pair_offset fp "R10C4" 4 10 "DHS_MD_1X2_C050" "DHS_MD_1X2_C050" 0.50 0.0 nil nil "multi partial overlap")
+      (dhs_pad_pair_offset fp "R10C5" 5 10 "DHS_MD_1X2_C050" "DHS_MD_1X2_C050" 0.25 0.0 nil nil "multi half-pitch offset")
+      (dhs_pad_pair_offset fp "R10C6" 6 10 "DHS_MD_2X2_C050" "DHS_RND_PTH_025" 0.25 0.25 nil nil "single at MD corner")
+      (dhs_via_pair fp "R10C7" 7 10 "DHS_MD_2X2_C050" "DHS_MD_1X2_C050" nil nil "2x2 vs 1x2 same origin")
+      (dhs_via_pair fp "M0" 3 11 "DHS_MD_2X2_C050" "DHS_MD_2X2_C050" nil nil "multi 2x2 same origin")
+      (dhs_via_pair fp "M1" 4 11 "DHS_MD_1X2_C050" "DHS_MD_1X2_C060" nil nil "multi diff pitch same origin")
+      (dhs_pad_pair_offset fp "M2" 5 11 "DHS_MD_2X2_C050" "DHS_MD_2X2_C050" 0.50 0.0 nil nil "multi 2x2 partial X")
+      (dhs_pad_pair_offset fp "M3" 6 11 "DHS_MD_2X2_C050" "DHS_MD_2X2_C050" 0.25 0.25 nil nil "multi 2x2 half offset")
       (dhs_real_pin_via_case fp "PIN-A" 0 3 "real pin-via")
       (close fp)
     )
     (dhs_clear_route_restrictions)
     (dhs_disable_other_drc)
+    (dhs_show_text_layers)
     (axlSaveDesign ?design save_path ?noConfirm t)
     t
   )

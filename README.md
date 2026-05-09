@@ -56,7 +56,7 @@ report DH when:
   drill layer spans overlap with positive Z length
 ```
 
-Observed non-factors once those two conditions hold include padstack name, copper pad size, copper pad shape, drill diameter, plating, round/slot style, slot size, slot X/Y orientation, object type, net name, and no-net status. Drill-body overlap without matching drill origin has not reported DH in the current showcase.
+Observed non-factors once those two conditions hold include padstack name, copper pad size, copper pad shape, drill diameter, plating, round/slot style, slot size, slot X/Y orientation, object type, net name, and no-net status. Drill-body overlap without matching drill origin has not reported DH in the current showcase. For multi-drill padstacks, current evidence indicates a pattern-level comparison: identical multi-drill patterns at the same origin report, while partial member-hole overlap and pattern/pitch mismatch do not.
 
 See `docs/showcase_case_analysis.md` for detailed per-case evidence.
 
@@ -120,6 +120,6 @@ report DH when:
   drill layer spans overlap with positive Z length
 ```
 
-当上述两个条件成立时，目前观察到以下因素不会抑制 DH：padstack 名称、copper pad 大小、copper pad 形状、孔径、plating、round/slot 类型、slot 尺寸、slot X/Y 方向、object type、net 名称以及 no-net 状态。当前 showcase 中，只有 drill 孔体重叠但 drill origin 不同的情况没有触发 DH。
+当上述两个条件成立时，目前观察到以下因素不会抑制 DH：padstack 名称、copper pad 大小、copper pad 形状、孔径、plating、round/slot 类型、slot 尺寸、slot X/Y 方向、object type、net 名称以及 no-net 状态。当前 showcase 中，只有 drill 孔体重叠但 drill origin 不同的情况没有触发 DH。对于 multi-drill padstack，当前证据表明 Allegro 更像是做 pattern-level 比较：同 origin 且 multi-drill pattern 相同会报，局部 member-hole 重合或 pattern/pitch 不同不会报。
 
 逐项证据见 `docs/showcase_case_analysis.md`。
