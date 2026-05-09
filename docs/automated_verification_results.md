@@ -12,7 +12,7 @@ Observed Allegro version:
 
 ## Automation Path
 
-The tests were run without manual Allegro GUI interaction:
+The tests were run through Allegro no-gui/batch execution:
 
 1. `allegro.exe -expert -p . -nographic -s <script.scr> <board.brd>`
 2. SKILL generated padstacks, vias, slot vias, bbvias, and a via over a real through pin.

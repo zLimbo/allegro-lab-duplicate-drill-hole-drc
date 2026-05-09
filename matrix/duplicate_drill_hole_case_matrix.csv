@@ -18,4 +18,4 @@ TC016,xy_tolerance,dx 0.0001 mil same span,via,via,PS_RND_PTH_10,PS_RND_PTH_10,1
 TC017,xy_tolerance,dx 0.001 mil same span,via,via,PS_RND_PTH_10,PS_RND_PTH_10,10,10,PTH,PTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NET_A,2500,1500,0.001,0,NO,P0,Record actual stored coordinate
 TC018,xy_tolerance,dx 0.01 mil same span,via,via,PS_RND_PTH_10,PS_RND_PTH_10,10,10,PTH,PTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NET_A,3000,1500,0.01,0,NO,P0,Expected separated
 TC019,xy_tolerance,dy 0.001 mil same span,via,via,PS_RND_PTH_10,PS_RND_PTH_10,10,10,PTH,PTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NET_A,3500,1500,0,0.001,NO,P1,Checks Y direction
-TC020,multiple,Three holes same XY same span,via,via,PS_RND_PTH_10,PS_RND_PTH_10,10,10,PTH,PTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NET_A,4000,1500,0,0,YES,P2,Add third object manually and observe marker count
+TC020,multiple,Three holes same XY same span,via,via,PS_RND_PTH_10,PS_RND_PTH_10,10,10,PTH,PTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NET_A,4000,1500,0,0,YES,P2,Generate third object and observe pairwise marker count

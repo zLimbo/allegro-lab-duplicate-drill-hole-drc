@@ -1,125 +1,54 @@
 # Board and Padstack Automation Strategy
 
-结论：手动创建 board、padstack、测试对象、DRC 执行和 report 导出可以脚本化一大部分，但建议分阶段推进。原因是 Allegro 的 SKILL API、batch 命令、padstack 编辑入口和 DRC report 命令在不同版本/许可/本地环境中可能不同。
+结论：本项目已验证 Allegro 24.1 可以通过 no-gui/batch 方式完成测试板生成、DRC 更新、report 导出与结果解析。
 
-本工程当前保持“不自动启动 Allegro”的原则，只提供脚本骨架和输入数据。所有不确定 Allegro API 都用 `TODO` 标注。
+## 已验证命令链路
 
-## 可自动化程度
+Cadence 工具路径：
 
-| 项目 | 自动化可行性 | 推荐方式 | 风险 |
-|---|---:|---|---|
-| 新建测试 board | 中 | Allegro 命令脚本或 SKILL 初始化 | stackup、template、单位设置依赖本地流程 |
-| 设置 board outline | 高 | SKILL 创建简单矩形 outline | API 名称需确认 |
-| 建立 stackup | 中 | template board 更稳；脚本修改为辅 | Constraint/stackup API 版本差异较大 |
-| 创建 padstack | 中 | 优先复用 `.pad` 文件；必要时用 Padstack Editor 命令流 | padstack editor 是否支持 batch 取决于安装环境 |
-| 放置 via / mechanical hole | 高 | SKILL 从 case matrix 批量放置 | via、pin、mechanical object API 不同 |
-| 设置 blind / buried layer span | 中 | SKILL 或预定义 padstack | span API 需确认 |
-| 指定 net | 高 | SKILL 赋 net 或预先建 net | no-net/mechanical 对象需区别处理 |
-| 启用 `DUP_DRILL_HOLE_VMODE` | 中 | Constraint 命令、参数文件或 SKILL | 属性位置和命令名需确认 |
-| 运行 DRC | 中高 | `dbdoctor.exe -drc_only` 可用于 batch 更新 DRC | 是否已启用目标 DRC 仍需确认 |
-| 导出 DRC report | 高 | `report.exe -v drc <brd> <out>` 已在本机 help 中确认 | report 格式需用真实输出校准解析器 |
-
-## 本机已探测到的 Cadence 工具
-
-路径：`C:\Cadence\SPB_24.1\tools\bin`
-
-已确认存在：
-
-- `allegro.exe`
-- `allegro_batch.exe`
-- `batch_drc.exe`
-- `dbdoctor.exe`
-- `extracta.exe`
-- `padstack_editor.exe`
-- `refresh_padstack.exe`
-- `report.exe`
-
-已确认命令行 help：
-
-- `allegro_batch.exe -help`
-- `allegro_batch.exe report -help`
-- `allegro_batch.exe refresh_padstack -help`
-- `allegro_batch.exe extracta -help`
-- `dbdoctor.exe -help`
-- `extracta.exe -help`
-- `report.exe -help`
-
-`report.exe` 版本输出：`24.1-S001`。
-
-`batch_drc.exe -help` 和 `padstack_editor.exe -help` 在本机未输出 help 文本，但命令返回成功；暂不依赖它们。
-
-## 已可脚本化的 DRC/report 链路
-
-新增脚本：
-
-```powershell
-.\scripts\run_drc_report.ps1 -BoardPath .\allegro\dh_boundary_test.brd
+```text
+C:\Cadence\SPB_24.1\tools\bin
 ```
 
-默认行为：
-
-1. 调用 `dbdoctor.exe -drc_only -outfile <copy.brd> <input.brd>`，在副本上更新 DRC。
-2. 调用 `report.exe -v drc <copy.brd> <report.rpt>`，导出 DRC report。
-
-如果只想导出已有 board 中的 report，不更新 DRC：
+已验证可用命令：
 
 ```powershell
-.\scripts\run_drc_report.ps1 -BoardPath .\allegro\dh_boundary_test.brd -ReportOnly
+cmd /c "call C:\Cadence\SPB_24.1\tools\bin\allegro_cmd.bat && allegro.exe -expert -p . -nographic -s scripts\dh_showcase_board.scr allegro\dh_duplicate_drill_showcase.brd"
+dbdoctor.exe -drc_only -outfile <out.brd> <in.brd>
+report.exe -v drc <board.brd> <report.rpt>
+python scripts\parse_drc_report.py <report.rpt> --csv <out.csv>
 ```
 
-注意：这条链路不能自动保证 `DUP_DRILL_HOLE_VMODE` 已启用。该属性仍建议先在 Allegro 中手工确认，或后续通过已验证的 SKILL / constraint command 自动设置。
+## 自动化覆盖范围
 
-## 推荐分阶段
+| 项目 | 当前状态 | 实现方式 |
+|---|---|---|
+| 创建测试 board | 已实现 | 复制 Cadence demo board 作为 template |
+| 清理 keepin/keepout | 已实现 | `axlDeleteByLayer` |
+| 创建 round padstack | 已实现 | SKILL `make_axlPadStackDrill` / `axlDBCreatePadStack` |
+| 创建 slot padstack | 已实现 | SKILL slot drill / oblong pad |
+| 创建 blind/buried padstack | 已实现 | SKILL `bbvia` drill usage |
+| 创建不同 copper pad 尺寸/形状 | 已实现 | 自定义 padstack pad figure/size |
+| 放置 via pair/triple | 已实现 | `axlDBCreateVia` |
+| 放置 package pin-via case | 已实现 | `axlDBCreateSymbol` + via |
+| 使用 demo board 真实 through pin | 已实现 | 扫描 component pin 并放置 via |
+| 启用 Duplicate Drill Hole | 已实现 | `axlCNSDesignModeSet 'Duplicate_Drill_Hole 'on` |
+| 关闭其它 DRC mode | 已实现 | spacing/same-net/physical/assembly/ecset/design mode set off |
+| 运行 DRC | 已实现 | `dbdoctor.exe -drc_only` |
+| 导出 report | 已实现 | `report.exe -v drc` |
+| 解析 DH | 已实现 | `scripts/parse_drc_report.py` |
 
-### Stage A: 半自动
+## 当前推荐流程
 
-手工新建 board 和 padstack，使用 SKILL 只批量放置 case 对象。优点是最快获得 DRC 边界数据，且风险最低。
+1. 用 `scripts/dh_showcase_board.il` 维护或新增 case。
+2. 用 `scripts/dh_showcase_board.scr` 在 no-gui Allegro 中生成 board。
+3. 用 `scripts/run_drc_report.ps1` 更新 DRC 并导出 report。
+4. 用 `scripts/parse_drc_report.py` 生成结构化 CSV。
+5. 将 case 说明与结论同步到 `docs/showcase_case_analysis.md`。
 
-适合现在立即做：
+## 仍需谨慎的点
 
-- 手工准备 `dh_boundary_test.brd`
-- 手工准备少量 padstack
-- 运行 `dh_run_selected_cases(...)`
-- 手工运行 DRC / 导出 report
-
-### Stage B: 对象创建自动化
-
-在确认放置 via、slot、mechanical hole 的 API 后，SKILL 从 `duplicate_drill_hole_case_matrix.csv` 批量创建所有 case，并写出对象 ID 映射日志。
-
-建议输出：
-
-- `results/generated_objects.csv`
-- `reports/<case_id>_drc.rpt`
-
-### Stage C: Board / padstack 初始化自动化
-
-如果你的环境允许 batch 创建 board 和 padstack，可以再增加：
-
-- 初始化 board 尺寸、单位、层叠
-- 创建或导入 padstack
-- 启用 `DUP_DRILL_HOLE_VMODE`
-- 跑 DRC 并导出 report
-
-这一步最依赖本地 Allegro 版本和公司 flow，建议等 Stage A/B 的 API 验证完成再做。
-
-## 推荐的输入数据
-
-- `matrix/duplicate_drill_hole_case_matrix.csv`：case 定义。
-- `matrix/padstack_requirements.csv`：padstack 需求清单。
-
-## 不建议完全自动化的部分
-
-- 不建议假设 GUI 可点击、可截图、可自动化。
-- 不建议在未确认 API 前自动修改生产环境 constraint 或 padstack library。
-- 不建议在同一个 board 中混合过多未隔离 case，除非记录了每个 case 的 origin 和对象 ID。
-
-## 最小可落地路径
-
-1. 手工创建 board 和 padstack。
-2. 在 Allegro 中加载 `skill/duplicate_drill_hole_sweep_skeleton.il`。
-3. 逐个替换 TODO：先实现坐标转换、padstack lookup、via 放置。
-4. 批量放置 TC001、TC002、TC012、TC014-TC018。
-5. 手工运行 DRC，导出 report。
-6. 用 `scripts/parse_drc_report.py` 解析。
-
-一旦这条链路跑通，再扩展 slot、NPTH、pin、mounting hole、blind/buried span。
+- 不同 Allegro 版本、license、公司封装的 template board 可能导致 SKILL API 或 constraint mode 名称不同。
+- 当前 slot case 没有穷举旋转角和非中心几何相交场景。
+- 当前 production-style mounting hole symbol 未作为独立公司库对象验证；现有覆盖包括 NPTH padstack、package pin、真实 through pin。
+- 坐标阈值应表述为 Allegro 数据库存储/量化后的 XY 行为，而不是任意浮点几何相等。

@@ -83,7 +83,7 @@
   ;   - configure TOP/INTERNAL1/INTERNAL2/BOTTOM
   ;
   ; Suggested conservative workflow:
-  ;   1. manually create a template board once
+  ;   1. create or copy a template board before the sweep
   ;   2. script object placement into copies of that template
   (dh_log (strcat "TODO create/open board: " board_path))
   nil
@@ -193,7 +193,7 @@
   ;   - enabling DUP_DRILL_HOLE_VMODE
   ;   - running batch DRC
   ;   - exporting DRC report to report_path
-  ; Avoid GUI automation assumptions here.
+  ; Prefer Allegro no-gui command/replay execution for repeatable runs.
   nil
 )
 
@@ -217,9 +217,9 @@
   t
 )
 
-; Example manual load in Allegro command window:
+; Example load in Allegro command window or no-gui replay:
 ;   skill load("D:/pcb/Duplicate Drill Hole DRC/skill/duplicate_drill_hole_sweep_skeleton.il")
-; Example manual call after reviewing TODOs:
+; Example call after reviewing TODOs:
 ;   dh_run_selected_cases("D:/pcb/Duplicate Drill Hole DRC/matrix/duplicate_drill_hole_case_matrix.csv")
 ;
 ; Optional future setup call after validating TODO APIs:
