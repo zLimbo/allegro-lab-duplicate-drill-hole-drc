@@ -30,7 +30,7 @@ Main evidence files:
 - `results/dh_duplicate_drill_showcase.parsed_dh.csv`
 - `results/dh_showcase_objects.csv`
 - `docs/showcase_case_analysis.md`
-- `docs/automated_verification_results.md`
+- `docs/lab_results.md`
 
 The current showcase contains 62 array cases plus one real demo-board through pin-via control. The latest DRC report contains 38 detailed entries, all `Duplicate Drill Hole`.
 
@@ -152,7 +152,7 @@ Current interpretation:
 - `scripts/run_drc_report.ps1`: runs `dbdoctor -drc_only` and `report -v drc`.
 - `scripts/parse_drc_report.py`: extracts DH report rows to CSV.
 - `docs/showcase_case_analysis.md`: detailed case matrix and per-case interpretation.
-- `docs/automated_verification_results.md`: Chinese final analysis and implementation recommendation.
+- `docs/lab_results.md`: unified lab results and implementation recommendation.
 - `README.md`: bilingual project overview with language switcher.
 
 ## Useful Git Context
@@ -177,6 +177,13 @@ core.sshCommand=ssh -i C:/Users/z/.ssh/id_ed25519 -o IdentitiesOnly=yes -o Stric
 
 Useful next lab directions:
 
+- A new independent item-item interaction lab now exists in
+  `docs/item_item_interaction_lab.md`. Current finding: Duplicate Drill Hole
+  coexists with `Thru Via to Thru Via Spacing` for the same two vias; it does
+  not cover or suppress that item-item spacing DRC in the tested setup.
+  Physical `Pad/Pad Direct Connect` is enabled with
+  `allow_padconnect = NOT_ALLOWED`; it reports for same-net offset via overlap,
+  but not for the tested same-net duplicate-drill pairs.
 - Staggered multi-drill arrays.
 - Multi-drill definitions involving slot holes, if Allegro supports them in the required mode.
 - Mixed plating multi-drill edge cases, if API/library constraints allow.
@@ -193,4 +200,3 @@ We are continuing the Allegro Duplicate Drill Hole DRC lab in D:\pcb\Duplicate D
 Please read docs/session_handoff.md first, then inspect git status and the latest generated results.
 The current goal is to continue from the pushed commit b3de623 without redoing earlier conclusions.
 ```
-

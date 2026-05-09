@@ -23,7 +23,7 @@ report.exe -v drc <board.brd> <report.rpt>
 
 - `docs/test_plan.md`: original test plan and target decision boundaries.
 - `docs/automation_strategy.md`: verified automation strategy and command chain.
-- `docs/automated_verification_results.md`: Chinese final verification summary.
+- `docs/lab_results.md`: unified lab results and conclusions.
 - `docs/showcase_case_analysis.md`: detailed per-case analysis for the generated showcase board.
 - `matrix/duplicate_drill_hole_case_matrix.csv`: original case matrix.
 - `matrix/padstack_requirements.csv`: padstack requirements.
@@ -87,7 +87,7 @@ report.exe -v drc <board.brd> <report.rpt>
 
 - `docs/test_plan.md`：原始测试计划与目标边界。
 - `docs/automation_strategy.md`：已验证的自动化策略与命令链路。
-- `docs/automated_verification_results.md`：中文最终验证总结。
+- `docs/lab_results.md`：统一 lab 结果与结论。
 - `docs/showcase_case_analysis.md`：生成展示板的逐项 case 分析。
 - `matrix/duplicate_drill_hole_case_matrix.csv`：原始 case matrix。
 - `matrix/padstack_requirements.csv`：padstack 需求。
