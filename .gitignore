@@ -1,0 +1,11 @@
+*.log
+*.jrl
+*.jrl,*
+batch_drc.log*
+dbdoctor.log*
+extract.log
+dangling_lines.rpt
+master.tag
+signoise.run/
+scripts/__pycache__/
+*.pyc

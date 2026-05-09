@@ -1,0 +1,8 @@
+padstack_name,purpose,hole_shape,hole_size_mil,plating,span_type,required_for_cases,creation_priority,notes
+PS_RND_PTH_10,baseline round plated through hole,round,10,PTH,through,TC001 TC002 TC005 TC006 TC010 TC012 TC014 TC015 TC016 TC017 TC018 TC019 TC020,P0,Use as primary control padstack
+PS_RND_PTH_10_ALT,different padstack name with equivalent drill,round,10,PTH,through,TC005,P1,Same geometry as PS_RND_PTH_10 if possible
+PS_RND_PTH_20,different drill diameter,round,20,PTH,through,TC006,P1,Tests diameter sensitivity
+PS_RND_NPTH_10,non-plated round hole,round,10,NPTH,through,TC007 TC011 TC013,P1,Mechanical/no-net cases
+PS_SLOT_PTH_10X30,plated slot,slot,10x30,PTH,through,TC008 TC009,P1,Confirm slot origin semantics in Allegro
+PS_RND_PTH_10_BLIND,blind via span padstack,round,10,PTH,blind,TC003 TC004,P1,TOP-INTERNAL1 target span
+PS_RND_PTH_10_BURIED,buried via span padstack,round,10,PTH,buried,TC004,P2,INTERNAL1-BOTTOM or equivalent

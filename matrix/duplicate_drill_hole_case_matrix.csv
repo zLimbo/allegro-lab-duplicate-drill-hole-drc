@@ -1,0 +1,21 @@
+case_id,category,purpose,obj_a_type,obj_b_type,padstack_a,padstack_b,hole_a,hole_b,plating_a,plating_b,shape_a,shape_b,span_a,span_b,net_a,net_b,x_a_mil,y_a_mil,dx_b_mil,dy_b_mil,expected_dh_initial,priority,notes
+TC001,baseline,Same XY same span same everything,via,via,PS_RND_PTH_10,PS_RND_PTH_10,10,10,PTH,PTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NET_A,1000,1000,0,0,YES,P0,Confirms positive control
+TC002,span,Same XY different span,via,via,PS_RND_PTH_10,PS_RND_PTH_10,10,10,PTH,PTH,round,round,TOP-BOTTOM,TOP-INTERNAL1,NET_A,NET_A,1500,1000,0,0,NO,P0,Tests whether span must match exactly
+TC003,span,Same XY same blind span,via,via,PS_RND_PTH_10_BLIND,PS_RND_PTH_10_BLIND,10,10,PTH,PTH,round,round,TOP-INTERNAL1,TOP-INTERNAL1,NET_A,NET_A,2000,1000,0,0,YES,P0,Requires blind via support
+TC004,span,Same XY overlapping but non-identical spans,via,via,PS_RND_PTH_10_BLIND,PS_RND_PTH_10_BURIED,10,10,PTH,PTH,round,round,TOP-INTERNAL1,INTERNAL1-BOTTOM,NET_A,NET_A,2500,1000,0,0,NO,P0,Checks overlap vs exact span
+TC005,padstack,Same XY same span different padstack name,via,via,PS_RND_PTH_10,PS_RND_PTH_10_ALT,10,10,PTH,PTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NET_A,3000,1000,0,0,YES,P1,Padstack names differ but drill equivalent
+TC006,hole_size,Same XY same span different hole diameter,via,via,PS_RND_PTH_10,PS_RND_PTH_20,10,20,PTH,PTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NET_A,3500,1000,0,0,YES,P1,Tests whether diameter affects duplicate definition
+TC007,plating,Same XY same span PTH vs NPTH,via,mounting_hole,PS_RND_PTH_10,PS_RND_NPTH_10,10,10,PTH,NPTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NO_NET,4000,1000,0,0,TBD,P1,Important manufacturing distinction
+TC008,shape,Same XY same span round vs slot,via,mounting_hole,PS_RND_PTH_10,PS_SLOT_PTH_10X30,10,10x30,PTH,PTH,round,slot,TOP-BOTTOM,TOP-BOTTOM,NET_A,NO_NET,4500,1000,0,0,TBD,P1,Tests drill hole vs route slot behavior
+TC009,shape,Same XY same span slot vs slot identical,slot,slot,PS_SLOT_PTH_10X30,PS_SLOT_PTH_10X30,10x30,10x30,PTH,PTH,slot,slot,TOP-BOTTOM,TOP-BOTTOM,NO_NET,NO_NET,5000,1000,0,0,TBD,P1,Tests duplicate slots
+TC010,object_type,Via vs pin same XY same span,via,pin,PS_RND_PTH_10,PS_RND_PTH_10,10,10,PTH,PTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NET_A,5500,1000,0,0,TBD,P1,Checks object type filtering
+TC011,object_type,Pin vs mounting hole same XY same span,pin,mounting_hole,PS_RND_PTH_10,PS_RND_NPTH_10,10,10,PTH,NPTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NO_NET,6000,1000,0,0,TBD,P1,Checks package/mechanical objects
+TC012,net,Same XY same span different nets,via,via,PS_RND_PTH_10,PS_RND_PTH_10,10,10,PTH,PTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NET_B,6500,1000,0,0,YES,P0,Tests whether net matters
+TC013,net,Same XY same span one no-net,via,mounting_hole,PS_RND_PTH_10,PS_RND_NPTH_10,10,10,PTH,NPTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NO_NET,7000,1000,0,0,TBD,P1,Net plus object/plating interaction
+TC014,xy_tolerance,dx 0.000001 mil same span,via,via,PS_RND_PTH_10,PS_RND_PTH_10,10,10,PTH,PTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NET_A,1000,1500,0.000001,0,NO,P0,May round to same DB coordinate
+TC015,xy_tolerance,dx 0.00001 mil same span,via,via,PS_RND_PTH_10,PS_RND_PTH_10,10,10,PTH,PTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NET_A,1500,1500,0.00001,0,NO,P0,Record actual stored coordinate
+TC016,xy_tolerance,dx 0.0001 mil same span,via,via,PS_RND_PTH_10,PS_RND_PTH_10,10,10,PTH,PTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NET_A,2000,1500,0.0001,0,NO,P0,Record actual stored coordinate
+TC017,xy_tolerance,dx 0.001 mil same span,via,via,PS_RND_PTH_10,PS_RND_PTH_10,10,10,PTH,PTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NET_A,2500,1500,0.001,0,NO,P0,Record actual stored coordinate
+TC018,xy_tolerance,dx 0.01 mil same span,via,via,PS_RND_PTH_10,PS_RND_PTH_10,10,10,PTH,PTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NET_A,3000,1500,0.01,0,NO,P0,Expected separated
+TC019,xy_tolerance,dy 0.001 mil same span,via,via,PS_RND_PTH_10,PS_RND_PTH_10,10,10,PTH,PTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NET_A,3500,1500,0,0.001,NO,P1,Checks Y direction
+TC020,multiple,Three holes same XY same span,via,via,PS_RND_PTH_10,PS_RND_PTH_10,10,10,PTH,PTH,round,round,TOP-BOTTOM,TOP-BOTTOM,NET_A,NET_A,4000,1500,0,0,YES,P2,Add third object manually and observe marker count
