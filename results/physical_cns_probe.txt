@@ -1,0 +1,4 @@
+axlCNSPhysicalModeGet_nil=((allow_padconnect allow_ts allow_etch bbvia_stagger_max bbvia_stagger_min vias width_max width_min))
+padpad_connect_get=(nil)
+Padpad_Connect_get=(nil)
+Pad_Pad_Connect_get=(nil)
