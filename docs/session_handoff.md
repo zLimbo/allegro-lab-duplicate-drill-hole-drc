@@ -32,7 +32,7 @@ Main evidence files:
 - `docs/showcase_case_analysis.md`
 - `docs/lab_results.md`
 
-The current showcase contains 62 array cases plus one real demo-board through pin-via control. The latest DRC report contains 38 detailed entries, all `Duplicate Drill Hole`.
+The current showcase contains 67 array cases plus one real demo-board through pin-via control. The latest DRC report contains 41 detailed entries, all `Duplicate Drill Hole`.
 
 The board array has been packed to 8 visual columns. The generated board also turns on the main text/silkscreen visibility layers before saving:
 
@@ -67,7 +67,7 @@ Current best model:
 
 ```text
 report DH when:
-  effective drill XY is the same after Allegro database coordinate storage/quantization
+  via/padstack instance XY is the same after Allegro database coordinate storage/quantization
   and
   drill layer spans overlap with positive Z length
   and
@@ -86,6 +86,13 @@ Important XY finding:
 - `X+0.001` separation avoided DH in the showcase board.
 - `X+0.0001` was stored/quantized as effectively same XY and did report.
 - Treat this as Allegro database-coordinate behavior, not generic floating-point equality.
+
+Important drill-offset finding:
+
+- Padstacks created with `make_axlPadStackDrill(... ?offset ...)` did not move the DH XY comparison point.
+- Same via/padstack instance origin reported DH even when drill offsets made the physical drill centers different.
+- Different via origins did not report even when opposing/compensating drill offsets aligned the physical drill centers.
+- Current wording should prefer `via/padstack instance origin` over broad `effective drill origin` for the DH XY key.
 
 ## Non-Factors For Single-Drill Cases
 
@@ -119,7 +126,7 @@ Observed:
 Conclusion:
 
 - Do not implement DH by drill polygon/oval intersection.
-- Use the effective drill origin and layer-span relationship.
+- Use the via/padstack instance-origin keyed XY comparison and layer-span relationship.
 - Keep shape/orientation/size as diagnostic metadata.
 
 ## Multi-Drill Findings

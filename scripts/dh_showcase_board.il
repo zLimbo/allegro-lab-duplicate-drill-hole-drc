@@ -103,6 +103,27 @@
   )
 )
 
+(defun dhs_make_offset_drill_padstack (name drill_diameter drill_dx drill_dy)
+  (let (drill pad_list pad_size)
+    (setq pad_size (plus drill_diameter 0.65))
+    (setq drill
+      (make_axlPadStackDrill
+        ?holeType 'CIRCLE_DRILL
+        ?drillDiameter drill_diameter
+        ?plating 'PLATED
+        ?offset drill_dx:drill_dy
+        ?figure 'CIRCLE
+        ?figureSize drill_diameter:drill_diameter
+      )
+    )
+    (setq pad_list nil)
+    (setq pad_list (cons (make_axlPadStackPad ?layer "TOP" ?type 'REGULAR ?figure 'CIRCLE ?figureSize pad_size:pad_size) pad_list))
+    (setq pad_list (cons (make_axlPadStackPad ?layer "DEFAULT_INTERNAL" ?type 'REGULAR ?figure 'CIRCLE ?figureSize pad_size:pad_size) pad_list))
+    (setq pad_list (cons (make_axlPadStackPad ?layer "BOTTOM" ?type 'REGULAR ?figure 'CIRCLE ?figureSize pad_size:pad_size) pad_list))
+    (axlDBCreatePadStack name drill pad_list t)
+  )
+)
+
 (defun dhs_make_slot_padstack (name slot_width slot_height plating)
   (let (drill pad_list pad_x pad_y)
     (setq pad_x (plus slot_height 0.25))
@@ -195,6 +216,8 @@
   (dhs_make_custom_padstack "DHS_PAD_OBLONG_SAME_DRILL" 0.25 'PLATED 'OBLONG_X 0.95 0.45 'OBLONG_X 0.95 0.45 'OBLONG_X 0.95 0.45)
   (dhs_make_custom_padstack "DHS_PAD_TOP_SMALL_BOT_LARGE" 0.25 'PLATED 'CIRCLE 0.38 0.38 'CIRCLE 0.60 0.60 'CIRCLE 0.90 0.90)
   (dhs_make_custom_padstack "DHS_PAD_TOP_LARGE_BOT_SMALL" 0.25 'PLATED 'CIRCLE 0.90 0.90 'CIRCLE 0.60 0.60 'CIRCLE 0.38 0.38)
+  (dhs_make_offset_drill_padstack "DHS_DRILL_OFF_XP030" 0.25 0.30 0.0)
+  (dhs_make_offset_drill_padstack "DHS_DRILL_OFF_XM030" 0.25 -0.30 0.0)
   (dhs_make_round_padstack "DHS_RND_PTH_010" 0.10 'PLATED)
   (dhs_make_round_padstack "DHS_RND_PTH_050" 0.50 'PLATED)
   (dhs_make_round_padstack "DHS_RND_NPTH_025" 0.25 'NON_PLATED)
@@ -263,6 +286,17 @@
     (setq xy (dhs_cell_xy col row))
     (setq x (car xy))
     (setq y (cadr xy))
+    (setq via_a (axlDBCreateVia pad_a x:y net_a))
+    (setq via_b (axlDBCreateVia pad_b (plus x dx):(plus y dy) net_b))
+    (dhs_text cell_id x (plus y 8.0))
+    (dhs_text label x (plus y 5.0))
+    (fprintf fp "%s,%g,%g,%s,%s,%L,%L,%s\n" cell_id x y pad_a pad_b via_a via_b label)
+    (list via_a via_b)
+  )
+)
+
+(defun dhs_xy_pair (fp cell_id x y pad_a pad_b dx dy net_a net_b label)
+  (let (via_a via_b)
     (setq via_a (axlDBCreateVia pad_a x:y net_a))
     (setq via_b (axlDBCreateVia pad_b (plus x dx):(plus y dy) net_b))
     (dhs_text cell_id x (plus y 8.0))
@@ -472,6 +506,11 @@
       (dhs_via_pair fp "M1" 4 11 "DHS_MD_1X2_C050" "DHS_MD_1X2_C060" nil nil "multi diff pitch same origin")
       (dhs_pad_pair_offset fp "M2" 5 11 "DHS_MD_2X2_C050" "DHS_MD_2X2_C050" 0.50 0.0 nil nil "multi 2x2 partial X")
       (dhs_pad_pair_offset fp "M3" 6 11 "DHS_MD_2X2_C050" "DHS_MD_2X2_C050" 0.25 0.25 nil nil "multi 2x2 half offset")
+      (dhs_xy_pair fp "DO0" 150.0 8.0 "DHS_DRILL_OFF_XP030" "DHS_RND_PTH_025" 0.0 0.0 "DHS_A" "DHS_A" "same via origin")
+      (dhs_xy_pair fp "DO1" 186.0 8.0 "DHS_DRILL_OFF_XP030" "DHS_RND_PTH_025" 0.30 0.0 "DHS_A" "DHS_A" "NO DH: drill XY align")
+      (dhs_xy_pair fp "DO2" 222.0 8.0 "DHS_DRILL_OFF_XP030" "DHS_DRILL_OFF_XP030" 0.0 0.0 "DHS_A" "DHS_A" "same drill offset")
+      (dhs_xy_pair fp "DO3" 258.0 8.0 "DHS_DRILL_OFF_XP030" "DHS_DRILL_OFF_XM030" 0.60 0.0 "DHS_A" "DHS_A" "NO DH: drill XY align")
+      (dhs_xy_pair fp "DO4" 294.0 8.0 "DHS_DRILL_OFF_XP030" "DHS_DRILL_OFF_XM030" 0.0 0.0 "DHS_A" "DHS_A" "opposite drill offsets")
       (dhs_real_pin_via_case fp "PIN-A" 0 3 "real pin-via")
       (close fp)
     )

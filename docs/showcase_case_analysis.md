@@ -21,8 +21,8 @@ DRC setup:
 
 Observed report summary:
 
-- Total DRC errors: 38
-- Detailed DRC type: all 38 entries are `Duplicate Drill Hole`
+- Total DRC errors: 41
+- Detailed DRC type: all 41 entries are `Duplicate Drill Hole`
 - No Route Keepin, Route Keepout, Spacing, Physical, or Miscellaneous DRC entries remained in the exported report.
 
 ## Interpretation Rules Used In This Document
@@ -99,6 +99,11 @@ For multi-object cases, Allegro reports pairwise markers. For example, three dri
 | M1 | `(258, 16)` | Multi-drill pitch mismatch | 1x2 pitch-0.50 multi-drill via vs 1x2 pitch-0.60 multi-drill via, same origin | No | Same origin and same row/column count did not report when pitch differed. |
 | M2 | `(294, 16)` | Multi-drill partial overlap | 2x2 multi-drill via vs same 2x2 multi-drill via shifted by one X pitch | No | Partial overlap of a multi-drill array did not report. |
 | M3 | `(330, 16)` | Multi-drill offset control | 2x2 multi-drill via vs same 2x2 multi-drill via shifted by half pitch in X/Y | No | Offset 2x2 multi-drill patterns did not report. |
+| DO0 | `(150, 8)` | Drill offset | `+0.30` drill-offset padstack vs normal padstack at the same via origin | Yes | Same via/padstack instance origin reports even though the physical drill centers differ by the padstack drill offset. |
+| DO1 | `(186, 8)` | Drill offset | `+0.30` drill-offset padstack vs normal padstack shifted `X+0.30` so physical drill centers align | No | Matching physical drill centers did not report when via/padstack instance origins differed. |
+| DO2 | `(222, 8)` | Drill offset | Two `+0.30` drill-offset padstacks at the same via origin | Yes | Same via origin and same drill offset reports. |
+| DO3 | `(258, 8)` | Drill offset | `+0.30` vs `-0.30` drill-offset padstacks with via origins separated by `X+0.60` so physical drill centers align | No | Matching physical drill centers did not report when via origins differed. |
+| DO4 | `(294, 8)` | Drill offset | `+0.30` vs `-0.30` drill-offset padstacks at the same via origin | Yes | Same via origin reports even when opposite drill offsets put physical drill centers apart. |
 | PIN-A | `(79.128, 19.632)` | Demo-board real pin | Existing demo through pin `U37.4` vs via | Yes | A real design through pin and a via can report DH. |
 
 ## Pad-Geometry Conclusion
@@ -126,6 +131,16 @@ The R8/R9 cases separate drill origin equality from drill-body geometric overlap
 
 Therefore, the observed DH decision is not based on polygon/oval drill-shape intersection. For an Allegro-like implementation, treat slot drills by their effective drill origin and layer span; record shape, orientation, and size as diagnostic details, not as duplicate-key fields.
 
+## Drill Offset Conclusion
+
+The DO0-DO4 cases use padstacks with `make_axlPadStackDrill(... ?offset ...)` so the physical drill center is offset from the via/padstack instance origin.
+
+- Same via origin reported even when one padstack had `drillOffset +0.30` and the other had no drill offset.
+- Same via origin reported for opposite `+0.30` and `-0.30` drill offsets, even though the physical drill centers differ.
+- Via origins separated so that the physical drill centers align did not report.
+
+Therefore, for these generated via padstacks, Allegro 24.1 Duplicate Drill Hole appears to key the XY comparison on the via/padstack instance origin, not the drill center after applying padstack `drillOffset`. This refines the earlier "effective drill origin" wording: for normal and slot cases this coincided with the apparent drill origin, but explicit `drillOffset` does not appear to move the DH comparison coordinate.
+
 ## Multi-Drill Array Conclusion
 
 The R10/M cases cover Allegro padstacks with `multiDrillData`:
@@ -144,7 +159,7 @@ The observed behavior is best modeled as:
 
 ```text
 report DH when:
-  effective drill XY is the same after Allegro database coordinate storage/quantization
+  via/padstack instance XY is the same after Allegro database coordinate storage/quantization
   and
   drill layer spans overlap with positive Z length
   and
