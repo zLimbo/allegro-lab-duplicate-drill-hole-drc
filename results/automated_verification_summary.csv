@@ -1,0 +1,21 @@
+case_id,variable_under_test,board_file,dh_detected,marker_location,observed_result,conclusion
+TC001,positive_control_same_xy_same_padstack_same_net,allegro/dh_auto_via_cases.drc_only.brd,YES,"(1000.00 1000.00)",Reported Duplicate Drill Hole,Positive control passes
+TC005,different_padstack_name_same_hole,allegro/dh_auto_via_cases.drc_only.brd,YES,"(1500.00 1000.00)",Reported Duplicate Drill Hole,Padstack name does not suppress DH
+TC006,different_hole_diameter,allegro/dh_auto_via_cases.drc_only.brd,YES,"(2000.00 1000.00)",Reported Duplicate Drill Hole,Hole diameter does not suppress DH
+TC007,pth_vs_npth,allegro/dh_auto_via_cases.drc_only.brd,YES,"(2500.00 1000.00)",Reported Duplicate Drill Hole,Plating does not suppress DH
+TC008,round_vs_slot,allegro/dh_auto_via_cases.drc_only.brd,YES,"(2600.00 1000.00)",Reported Duplicate Drill Hole,Round drill and slot can trigger DH when origins coincide
+TC009,slot_vs_slot,allegro/dh_auto_via_cases.drc_only.brd,YES,"(2700.00 1000.00)",Reported Duplicate Drill Hole,Duplicate slots trigger DH
+TC012,different_nets,allegro/dh_auto_via_cases.drc_only.brd,YES,"(3000.00 1000.00)",Reported Duplicate Drill Hole,Net name does not suppress DH
+TC013,one_no_net,allegro/dh_auto_via_cases.drc_only.brd,YES,"(3500.00 1000.00)",Reported Duplicate Drill Hole,No-net counterpart does not suppress DH
+TC014,dx_0_000001_mil,allegro/dh_auto_via_cases.drc_only.brd,YES,"(1000.00 1500.00)",Offset stored/displayed as same 0.01 mil coordinate,Sub-database-resolution offset rounded to same XY and reports
+TC015,dx_0_00001_mil,allegro/dh_auto_via_cases.drc_only.brd,YES,"(1500.00 1500.00)",Offset stored/displayed as same 0.01 mil coordinate,Sub-database-resolution offset rounded to same XY and reports
+TC016,dx_0_0001_mil,allegro/dh_auto_via_cases.drc_only.brd,YES,"(2000.00 1500.00)",Offset stored/displayed as same 0.01 mil coordinate,Sub-database-resolution offset rounded to same XY and reports
+TC017,dx_0_001_mil,allegro/dh_auto_via_cases.drc_only.brd,YES,"(2500.00 1500.00)",Offset stored/displayed as same 0.01 mil coordinate,Sub-database-resolution offset rounded to same XY and reports
+TC018,dx_0_01_mil,allegro/dh_auto_via_cases.drc_only.brd,NO,"(3000.01 1500.00)",No Duplicate Drill Hole,0.01 mil stored XY separation avoids DH
+TC019,dy_0_01_mil,allegro/dh_auto_via_cases.drc_only.brd,NO,"(3500.00 1500.01)",No Duplicate Drill Hole,0.01 mil stored XY separation avoids DH
+SP001,through_vs_through_same_span,allegro/dh_auto_span_cases.drc_only.brd,YES,"(540.000 260.000)",Reported Duplicate Drill Hole,Same through span reports
+SP002,top_gnd_vs_top_gnd_same_span,allegro/dh_auto_span_cases.drc_only.brd,YES,"(545.000 260.000)",Reported Duplicate Drill Hole,Same blind/buried span reports
+SP003,through_vs_top_gnd_different_span,allegro/dh_auto_span_cases.drc_only.brd,YES,"(550.000 260.000)",Reported Duplicate Drill Hole,Exact layer-span equality is not required
+SP004,top_gnd_vs_top_inner1_different_span,allegro/dh_auto_span_cases.drc_only.brd,YES,"(555.000 260.000)",Reported Duplicate Drill Hole,Overlapping drill spans can report DH
+SP005,top_inner1_vs_inner1_bottom_touching_span,allegro/dh_auto_span_cases.drc_only.brd,NO,"(560.000 260.000)",No Duplicate Drill Hole,Endpoint-only shared layer did not report in this test
+PIN001,real_through_pin_vs_via,allegro/dh_pin_probe.drc_only.brd,YES,"(79.128 19.632)",Reported Pin U37.4 vs Via,Via and real through pin object types can trigger DH

@@ -1,0 +1,2 @@
+report_file,line_number,code,x,y,message,context
+reports\dh_pin_probe.drc.rpt,12,DH,79.128,19.632,"Duplicate Drill Hole,(79.128 19.632),ALL,FALSE,TRUE,NONE,DESIGN,Pin ""U37.4 (V12n)"",Via ""Via  (79.128 19.632) (V12n)""","Detailed DRC Errors | Constraint Name,DRC Marker Location,DRC Subclass,Required Value,Actual Value,Constraint Source,Constraint Source Type,Element 1,Element 2 | Duplicate Drill Hole,(79.128 19.632),ALL,FALSE,TRUE,NONE,DESIGN,Pin ""U37.4 (V12n)"",Via ""Via  (79.128 19.632) (V12n)"""

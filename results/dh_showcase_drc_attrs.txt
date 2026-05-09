@@ -1,0 +1,165 @@
+DRC 1
+(prop nil bBox ((-10.9 180.55) (-9.9 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (-10.4 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A2688) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "22.036 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 2
+(prop nil bBox ((-18.5 201.5) (-17.5 202.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (-18.0 202.0) violations (dbid:0000020F7F2A2718 dbid:0000020F7F2A2688) type "DESIGN" source "NONE" fixed t parent dbid:0000020F7D0607E0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+
+DRC 3
+(prop nil bBox ((72.3 180.55) (73.3 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (72.8 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A2C58) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "24.379 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 4
+(prop nil bBox ((85.5 201.5) (86.5 202.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (86.0 202.0) violations (dbid:0000020F7F2A2D18 dbid:0000020F7F2A2C58) type "DESIGN" source "NONE" fixed t parent dbid:0000020F7D0607E0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+
+DRC 5
+(prop nil bBox ((33.5 163.25) (34.5 164.25)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/GND" xy (34.0 163.75) violations (dbid:0000020F7F0BAE60 dbid:0000020F7F2A3868) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "0 MM" name "Blind/Buried Via to Route Keepout Spacing")
+
+DRC 6
+(prop nil bBox ((33.5 163.25) (34.5 164.25)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (34.0 163.75) violations (dbid:0000020F7F0BAD68 dbid:0000020F7F2A3868) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "0 MM" name "Blind/Buried Via to Route Keepout Spacing")
+
+DRC 7
+(prop nil bBox ((33.5 163.5) (34.5 164.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (34.0 164.0) violations (dbid:0000020F7F2A38F8 dbid:0000020F7F2A3868) type "DESIGN" source "NONE" fixed t parent dbid:0000020F7D0607E0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+
+DRC 8
+(prop nil bBox ((-10.9 180.55) (-9.9 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (-10.4 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A2460) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "62.925 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 9
+(prop nil bBox ((-70.5 201.5) (-69.5 202.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (-70.0 202.0) violations (dbid:0000020F7F2A23A0 dbid:0000020F7F2A2460) type "DESIGN" source "NONE" fixed t parent dbid:0000020F7D0607E0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+
+DRC 10
+(prop nil bBox ((72.3 180.55) (73.3 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (72.8 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A20B8) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "87.648 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 11
+(prop nil bBox ((137.5 239.5) (138.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (138.0 240.0) violations (dbid:0000020F7F2A2148 dbid:0000020F7F2A20B8) type "DESIGN" source "NONE" fixed t parent dbid:0000020F7D0607E0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+
+DRC 12
+(prop nil bBox ((-10.9 163.5) (-9.9 164.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (-10.4 164.0) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A3320) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "59.35 MM" name "Blind/Buried Via to Route Keepin Spacing")
+
+DRC 13
+(prop nil bBox ((-70.5 163.5) (-69.5 164.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (-70.0 164.0) violations (dbid:0000020F7F2A3260 dbid:0000020F7F2A3320) type "DESIGN" source "NONE" fixed t parent dbid:0000020F7D0607E0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+
+DRC 14
+(prop nil bBox ((33.5 180.55) (34.5 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (34.0 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A1AE8) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "58.7 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 15
+(prop nil bBox ((33.5 239.5) (34.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (34.0 240.0) violations (dbid:0000020F7F2A1BA8 dbid:0000020F7F2A1AE8) type "DESIGN" source "NONE" fixed t parent dbid:0000020F7D0607E0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+
+DRC 16
+(prop nil bBox ((-10.9 180.55) (-9.9 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (-10.4 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A23A0) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "62.925 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 17
+(prop nil bBox ((-10.9 163.5) (-9.9 164.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (-10.4 164.0) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A35D8) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "7.35 MM" name "Blind/Buried Via to Route Keepin Spacing")
+
+DRC 18
+(prop nil bBox ((-18.5 163.5) (-17.5 164.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (-18.0 164.0) violations (dbid:0000020F7F2A3548 dbid:0000020F7F2A35D8) type "DESIGN" source "NONE" fixed t parent dbid:0000020F7D0607E0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+
+DRC 19
+(prop nil bBox ((72.3 180.55) (73.3 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (72.8 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A2D18) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "24.379 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 20
+(prop nil bBox ((33.5 180.55) (34.5 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (34.0 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A2970) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "20.7 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 21
+(prop nil bBox ((33.5 201.5) (34.5 202.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (34.0 202.0) violations (dbid:0000020F7F2A2A00 dbid:0000020F7F2A2970) type "DESIGN" source "NONE" fixed t parent dbid:0000020F7D0607E0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+
+DRC 22
+(prop nil bBox ((-10.9 180.55) (-9.9 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (-10.4 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A1058) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "83.579 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 23
+(prop nil bBox ((-70.5 239.5) (-69.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (-70.0 240.0) violations (dbid:0000020F7F2A1140 dbid:0000020F7F2A1058) type "DESIGN" source "NONE" fixed t parent dbid:0000020F7D0607E0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+
+DRC 24
+(prop nil bBox ((72.3 180.55) (73.3 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (72.8 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A1E90) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "60.035 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 25
+(prop nil bBox ((85.5 239.5) (86.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (86.0 240.0) violations (dbid:0000020F7F2A1DD0 dbid:0000020F7F2A1E90) type "DESIGN" source "NONE" fixed t parent dbid:0000020F7D0607E0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+
+DRC 26
+(prop nil bBox ((72.3 180.55) (73.3 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (72.8 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A2FD0) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "68.243 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 27
+(prop nil bBox ((-10.9 163.5) (-9.9 164.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (-10.4 164.0) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A3548) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "7.35 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 28
+(prop nil bBox ((-10.9 180.55) (-9.9 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (-10.4 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A1140) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "83.579 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 29
+(prop nil bBox ((33.5 180.55) (34.5 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (34.0 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A2A00) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "20.7 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 30
+(prop nil bBox ((33.5 163.25) (34.5 164.25)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (34.0 163.75) violations (dbid:0000020F7F0BAD68 dbid:0000020F7F2A38F8) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "0 MM" name "Blind/Buried Via to Route Keepout Spacing")
+
+DRC 31
+(prop nil bBox ((-10.9 180.55) (-9.9 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (-10.4 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A18B8) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "59.138 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 32
+(prop nil bBox ((33.5 180.55) (34.5 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (34.0 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A1BA8) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "58.7 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 33
+(prop nil bBox ((-10.9 180.55) (-9.9 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (-10.4 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A2718) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "22.036 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 34
+(prop nil bBox ((135.513 98.616) (136.513 99.616)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (136.013 99.116) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A3E98) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "64.665 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 35
+(prop nil bBox ((-18.5 239.5) (-17.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (-18.0 240.0) violations (dbid:0000020F7F2A18B8 dbid:0000020F7F2A1750) type "DESIGN" source "NONE" fixed t parent dbid:0000020F7D0607E0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+
+DRC 36
+(prop nil bBox ((-18.2 239.5) (-17.2 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/BOTTOM" xy (-17.7 240.0) violations (dbid:0000020F7F2A18B8 dbid:0000020F7F2A1750) type "DESIGN" source "MECH_PIN_TO_CONDUCTOR_SPACING" fixed t parent dbid:0000020F7D0607E0 expected "0.2 MM" actual "OVERLAP" name "Mechanical Drill Hole to Via Spacing")
+
+DRC 37
+(prop nil bBox ((-18.2 239.5) (-17.2 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/POWER" xy (-17.7 240.0) violations (dbid:0000020F7F2A18B8 dbid:0000020F7F2A1750) type "DESIGN" source "MECH_PIN_TO_CONDUCTOR_SPACING" fixed t parent dbid:0000020F7D0607E0 expected "0.2 MM" actual "OVERLAP" name "Mechanical Drill Hole to Via Spacing")
+
+DRC 38
+(prop nil bBox ((-18.2 239.5) (-17.2 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/INNER2" xy (-17.7 240.0) violations (dbid:0000020F7F2A18B8 dbid:0000020F7F2A1750) type "DESIGN" source "MECH_PIN_TO_CONDUCTOR_SPACING" fixed t parent dbid:0000020F7D0607E0 expected "0.2 MM" actual "OVERLAP" name "Mechanical Drill Hole to Via Spacing")
+
+DRC 39
+(prop nil bBox ((-18.2 239.5) (-17.2 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/INNER1" xy (-17.7 240.0) violations (dbid:0000020F7F2A18B8 dbid:0000020F7F2A1750) type "DESIGN" source "MECH_PIN_TO_CONDUCTOR_SPACING" fixed t parent dbid:0000020F7D0607E0 expected "0.2 MM" actual "OVERLAP" name "Mechanical Drill Hole to Via Spacing")
+
+DRC 40
+(prop nil bBox ((-18.2 239.5) (-17.2 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/GND" xy (-17.7 240.0) violations (dbid:0000020F7F2A18B8 dbid:0000020F7F2A1750) type "DESIGN" source "MECH_PIN_TO_CONDUCTOR_SPACING" fixed t parent dbid:0000020F7D0607E0 expected "0.2 MM" actual "OVERLAP" name "Mechanical Drill Hole to Via Spacing")
+
+DRC 41
+(prop nil bBox ((-18.2 239.5) (-17.2 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (-17.7 240.0) violations (dbid:0000020F7F2A18B8 dbid:0000020F7F2A1750) type "DESIGN" source "MECH_PIN_TO_CONDUCTOR_SPACING" fixed t parent dbid:0000020F7D0607E0 expected "0.2 MM" actual "OVERLAP" name "Mechanical Drill Hole to Via Spacing")
+
+DRC 42
+(prop nil bBox ((-18.5 239.5) (-17.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/BOTTOM" xy (-18.0 240.0) violations (dbid:0000020F7F2A18B8 dbid:0000020F7F2A17F0) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "0 MM" name "Thru Via to Route Keepout Spacing")
+
+DRC 43
+(prop nil bBox ((-18.5 239.5) (-17.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/POWER" xy (-18.0 240.0) violations (dbid:0000020F7F2A18B8 dbid:0000020F7F2A17F0) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "0 MM" name "Thru Via to Route Keepout Spacing")
+
+DRC 44
+(prop nil bBox ((-18.5 239.5) (-17.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/INNER2" xy (-18.0 240.0) violations (dbid:0000020F7F2A18B8 dbid:0000020F7F2A17F0) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "0 MM" name "Thru Via to Route Keepout Spacing")
+
+DRC 45
+(prop nil bBox ((-18.5 239.5) (-17.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/INNER1" xy (-18.0 240.0) violations (dbid:0000020F7F2A18B8 dbid:0000020F7F2A17F0) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "0 MM" name "Thru Via to Route Keepout Spacing")
+
+DRC 46
+(prop nil bBox ((-18.5 239.5) (-17.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/GND" xy (-18.0 240.0) violations (dbid:0000020F7F2A18B8 dbid:0000020F7F2A17F0) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "0 MM" name "Thru Via to Route Keepout Spacing")
+
+DRC 47
+(prop nil bBox ((-18.5 239.5) (-17.5 240.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (-18.0 240.0) violations (dbid:0000020F7F2A18B8 dbid:0000020F7F2A17F0) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "0 MM" name "Thru Via to Route Keepout Spacing")
+
+DRC 48
+(prop nil bBox ((72.3 180.55) (73.3 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (72.8 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A2148) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "87.648 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 49
+(prop nil bBox ((72.3 163.5) (73.3 164.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/INNER1" xy (72.8 164.0) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A3C10) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "12.95 MM" name "Blind/Buried Via to Route Keepin Spacing")
+
+DRC 50
+(prop nil bBox ((78.628 19.132) (79.628 20.132)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/ALL" xy (79.128 19.632) violations (dbid:0000020F7F2A4180 dbid:0000020F7EB895C0) type "DESIGN" source "NONE" fixed t parent dbid:0000020F7D0607E0 expected "FALSE" actual "TRUE" name "Duplicate Drill Hole")
+
+DRC 51
+(prop nil bBox ((72.3 163.5) (73.3 164.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (72.8 164.0) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A3B80) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "12.95 MM" name "Blind/Buried Via to Route Keepin Spacing")
+
+DRC 52
+(prop nil bBox ((135.513 98.616) (136.513 99.616)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (136.013 99.116) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A3F28) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "64.675 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 53
+(prop nil bBox ((72.3 180.55) (73.3 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (72.8 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A1DD0) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "60.16 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 54
+(prop nil bBox ((72.3 180.55) (73.3 181.55)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (72.8 181.05) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A2F40) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "68.233 MM" name "Thru Via to Route Keepin Spacing")
+
+DRC 55
+(prop nil bBox ((-10.9 163.5) (-9.9 164.5)) readOnly t objType "drc" waived nil layer "DRC ERROR CLASS/TOP" xy (-10.4 164.0) violations (dbid:0000020F7F12B4D8 dbid:0000020F7F2A3260) type "NET SPACING CONSTRAINTS" source "DEFAULT" fixed t parent dbid:0000020F7D0607E0 expected "0 MM" actual "59.35 MM" name "Blind/Buried Via to Route Keepin Spacing")
+

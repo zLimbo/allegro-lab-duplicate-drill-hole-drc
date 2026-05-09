@@ -1,0 +1,77 @@
+Summary Drawing Report
+D:/pcb/Duplicate Drill Hole DRC/allegro/probe_multilayer.brd
+Fri May  8 18:14:28 2026
+
+Drawing Statistics:
+    Drawing Extents  XL(-100.000)  YL(-152.400)  XU(600.000)  YU(279.400)
+    Dimensions in millimeters with 3 decimal places
+    Layers:  Total(6)  Routing(4)  Planes(2)
+    Design Thickness: 1.812200 millimeters
+    Package Symbols:  Total(355)  Mirrored(210)  Embedded(0)  Pins(2711)
+    Mechanical Symbols:  Total(8)  Mirrored(0)  Pins(9)
+    Format Symbols:  Total(0)
+    DRC State: UP TO DATE
+    DRC Errors: 0
+    Short DRC: 0
+    Waived DRC: 0
+    Padstack Definitions: 68
+    Dynamic shapes:  Total(22)  Out_of_date(0)
+    Functions:   Assigned(388)  Unassigned(0)  Total(388)
+    Poly Via (pVia) Sites:  0
+
+Drilling Statistics:
+    Minimum Drill Size (cm):  0.020300
+    Drills:  Total(1512)  Standard NC(1512)  Nonstandard(0)
+    Holes:  Plated(1507)  Non-Plated(5)
+    MultiDrill Padstacks:  0
+    Vias:  Thru(1242)  BBVias(0)  Microvia(0)  HDI(0)
+
+Connection Statistics:
+    Connections:  W/Rats(1926)  No/Rats(0)  Total(1926)
+    Already Connected:  W/Rats(1926)  No/Rats(0)  Total(1926)
+    Missing Connections: W/Rats(0)  No/Rats(0)  Total(0)
+    Dangling Connections (See logfile):  10
+    Connection Completion:  W/Rats(100.00%)  No/Rats(0.00%)  Total(100.00%)  
+    Manh Distance (cm):  1597.290
+    Trace Length (cm):  W/Rats(1960.45)  No/Rats(0.00)  Total(1960.45)
+    Number of Vias:  W/Rats(1242)  No/Rats(0)  Total(1242)
+    Vias per Connection:  W/Rats(0.64)  No/Rats(0.00)Total(0.64)
+    SMD pins with attached clines:  1942
+
+Layout Statistics:
+    Components:  Placed(355)  Unplaced(0)  Total(355)
+    Component Classes:  IC(37)  IO(9)  Discrete(309)  Mechanical(0)  Other(0)
+    Nets: W/Rats(374)  No/Rats(0)  Total(374)
+    Pins: W/Rats(2300)  No/Rats(0)  Unused(375)  Unplaced(0)  Total(2675)
+    Equivalent ICs (1 pin = 1/14 EIC):  191
+    RatTs:  0
+    Router Keepin (cm):   (-2.4900,-5.2200) by (14.9100,18.1050)
+    Layout area (sq cm):  188.24
+    Average ratlength (cm):   1.8
+    Rat density (cm/sq cm):  8.485
+    Double-sided rat density (cm/sq cm):  4.243
+
+Layout/Pin Density Statistics
+Layer,Layout Area<BR>(sq cm),Components,Pins,Layout Density<BR>(sq cm/EIC),Pin Density<BR>(pins/sq cm)
+External(Double-Sided),376.48,351,2663,1.979,7.073
+Embedded(2),376.48,4,48,109.806,0.127
+Design,188.24,355,2711,0.972,14.402
+
+Trace Layer Statistics:
+Layer,Clines/Carcs,Shapes(voids),Rectangles,Lines/Arcs,Text,Components(Pins)
+TOP,1345,21(17),0,0,0,143(2027)
+GND,102,2(954),0,0,0,0(0)
+INNER1,216,0(0),0,0,0,2(20)
+INNER2,185,16(576),0,0,0,2(28)
+POWER,49,5(1089),0,0,0,0(0)
+BOTTOM,779,1(381),0,0,0,208(636)
+
+Trace Width By Layer:
+Layer,Widths (millimeters)
+TOP,0.100 0.102 0.127 0.150 0.200 0.250 0.300 0.500 0.850 
+GND,
+INNER1,0.100 0.102 0.127 0.200 0.300 0.400 0.500 0.850 
+INNER2,0.100 0.102 0.127 0.200 0.400 0.500 
+POWER,
+BOTTOM,0.100 0.102 0.127 0.150 0.200 0.300 0.500 
+

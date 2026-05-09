@@ -1,0 +1,12 @@
+component_count=355
+found_comp="U37"
+found_pin=dbid:000002292DF4D0D0
+pin_objType="pin"
+pin_name="T1_1"
+pin_xy=(79.128 19.632)
+pin_definition=dbid:000002292DE6F9B0
+pin_definition_name="T1_1"
+pin_isThrough=t
+pin_net=dbid:000002292DE63568
+created_via=(dbid:000002292DE46758 t)
+found=dbid:000002292DF4D0D0

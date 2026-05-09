@@ -1,0 +1,6 @@
+case_id,padstack_a,padstack_b,via_a,via_b,x_mil_or_mm,y_mil_or_mm,expected_dh_initial,notes
+SP001,DH_SPAN_THRU,DH_SPAN_THRU,(dbid:000001EB1E080758 t),(dbid:000001EB1EBD7278 t),540,260,YES,through_vs_through_same_xy
+SP002,DH_SPAN_TOP_GND,DH_SPAN_TOP_GND,(dbid:000001EB1EBD7838 t),(dbid:000001EB1EBD7AD8 t),545,260,YES,top_gnd_vs_top_gnd_same_xy
+SP003,DH_SPAN_THRU,DH_SPAN_TOP_GND,(dbid:000001EB1EBD7E18 t),(dbid:000001EB1EBDA338 t),550,260,NO,through_vs_top_gnd_same_xy
+SP004,DH_SPAN_TOP_GND,DH_SPAN_TOP_INNER1,(dbid:000001EB1EBDA6D8 t),(dbid:000001EB1EBDA978 t),555,260,NO,top_gnd_vs_top_inner1_same_xy
+SP005,DH_SPAN_TOP_INNER1,DH_SPAN_INNER1_BOTTOM,(dbid:000001EB1EBDAD18 t),(dbid:000001EB1EBDAFB8 t),560,260,NO,overlap_at_inner1_but_different_span
