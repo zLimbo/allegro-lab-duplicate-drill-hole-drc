@@ -1,0 +1,196 @@
+# Session Handoff: Duplicate Drill Hole DRC Lab
+
+Last updated: 2026-05-09
+
+Repository:
+
+- Local path: `D:\pcb\Duplicate Drill Hole DRC`
+- GitHub: `https://github.com/zLimbo/allegro-lab-duplicate-drill-hole-drc`
+- Latest pushed commit at handoff: `b3de623 Add multi-drill boundary cases`
+
+Cadence environment used:
+
+```text
+C:\Cadence\SPB_24.1\tools\bin
+Allegro PCB Venture 24.1 S001 Windows SPB 64-bit Edition
+```
+
+## Current State
+
+The lab is fully scriptable in Allegro no-gui/batch mode. It generates a showcase board, runs Duplicate Drill Hole DRC, exports a report, parses DH records, and documents the observed boundaries.
+
+Main generated board:
+
+- `allegro/dh_duplicate_drill_showcase.brd`
+- `allegro/dh_duplicate_drill_showcase.drc_only.brd`
+
+Main evidence files:
+
+- `reports/dh_duplicate_drill_showcase.drc.rpt`
+- `results/dh_duplicate_drill_showcase.parsed_dh.csv`
+- `results/dh_showcase_objects.csv`
+- `docs/showcase_case_analysis.md`
+- `docs/automated_verification_results.md`
+
+The current showcase contains 62 array cases plus one real demo-board through pin-via control. The latest DRC report contains 38 detailed entries, all `Duplicate Drill Hole`.
+
+The board array has been packed to 8 visual columns. The generated board also turns on the main text/silkscreen visibility layers before saving:
+
+- `BOARD GEOMETRY/NOTES`
+- `REF DES/SILKSCREEN_TOP`
+- `REF DES/SILKSCREEN_BOTTOM`
+- `PACKAGE GEOMETRY/SILKSCREEN_TOP`
+- `PACKAGE GEOMETRY/SILKSCREEN_BOTTOM`
+
+## Reproduction Commands
+
+From the repository root:
+
+```powershell
+Copy-Item -LiteralPath 'C:\Cadence\SPB_24.1\share\pcb\examples\board_design\Cadence_Demo.brd' -Destination '.\allegro\dh_duplicate_drill_showcase.brd' -Force
+cmd /c "call C:\Cadence\SPB_24.1\tools\bin\allegro_cmd.bat && allegro.exe -expert -p . -nographic -s scripts\dh_showcase_board.scr allegro\dh_duplicate_drill_showcase.brd"
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run_drc_report.ps1 -BoardPath .\allegro\dh_duplicate_drill_showcase.brd -OutputBoardPath .\allegro\dh_duplicate_drill_showcase.drc_only.brd -ReportPath .\reports\dh_duplicate_drill_showcase.drc.rpt
+python .\scripts\parse_drc_report.py .\reports\dh_duplicate_drill_showcase.drc.rpt --csv .\results\dh_duplicate_drill_showcase.parsed_dh.csv
+```
+
+If the default `python` is not suitable, the previous runs used:
+
+```powershell
+& 'C:\Users\z\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' .\scripts\parse_drc_report.py .\reports\dh_duplicate_drill_showcase.drc.rpt --csv .\results\dh_duplicate_drill_showcase.parsed_dh.csv
+```
+
+## Core Observed Rule
+
+The original hypothesis, "DH only reports when XY and layer span are exactly identical", is only partially correct.
+
+Current best model:
+
+```text
+report DH when:
+  effective drill XY is the same after Allegro database coordinate storage/quantization
+  and
+  drill layer spans overlap with positive Z length
+  and
+  for multi-drill padstacks, the multi-drill pattern definition also matches
+```
+
+Important span finding:
+
+- Exact layer-span equality is not required.
+- Positive Z overlap is enough.
+- Endpoint-only contact did not report.
+- Disjoint spans did not report.
+
+Important XY finding:
+
+- `X+0.001` separation avoided DH in the showcase board.
+- `X+0.0001` was stored/quantized as effectively same XY and did report.
+- Treat this as Allegro database-coordinate behavior, not generic floating-point equality.
+
+## Non-Factors For Single-Drill Cases
+
+Once effective XY matches and spans positively overlap, the following did not suppress DH:
+
+- padstack name
+- copper pad size
+- copper pad shape
+- per-layer copper pad geometry
+- drill diameter
+- plating, including PTH vs NPTH
+- round vs slot style
+- slot size
+- slot X/Y orientation
+- object type among via, generated package pin, and real demo through pin
+- net mismatch
+- one object no-net
+- both objects no-net
+
+## Slot / Drill Shape Findings
+
+Slot cases distinguish drill origin equality from drill-body geometry overlap.
+
+Observed:
+
+- X-slot vs Y-slot at the same origin reported.
+- Slot-vs-slot with overlapping bodies but different origins did not report.
+- Round drill placed inside or near a slot body did not report if the round drill origin differed from the slot origin.
+- Cross-slot `X+0.001` offset did not report.
+
+Conclusion:
+
+- Do not implement DH by drill polygon/oval intersection.
+- Use the effective drill origin and layer-span relationship.
+- Keep shape/orientation/size as diagnostic metadata.
+
+## Multi-Drill Findings
+
+Current multi-drill cases use generated circular PTH padstacks with `multiDrillData`.
+
+Reported:
+
+- 1x2 multi-drill vs identical 1x2 multi-drill at the same padstack origin.
+- 2x2 multi-drill vs identical 2x2 multi-drill at the same padstack origin.
+
+Not reported:
+
+- multi-drill vs single drill at the padstack origin
+- multi-drill vs single drill offset to a nominal member-hole location
+- identical multi-drill arrays shifted so only a subset of member holes could overlap
+- 2x2 vs 1x2 at the same padstack origin
+- 1x2 pitch-0.50 vs 1x2 pitch-0.60 at the same padstack origin
+
+Current interpretation:
+
+- Allegro appears to treat a multi-drill padstack as a pattern-level drill definition for DH.
+- It does not appear to expand multi-drill definitions into independent member-hole points for single-vs-multi or partial-overlap duplicate checks.
+- Same origin alone is not sufficient for multi-drill; row/column count and pitch/pattern compatibility matter.
+
+## Key Source Files
+
+- `scripts/dh_showcase_board.il`: main SKILL generator for the showcase board.
+- `scripts/dh_showcase_board.scr`: loads and runs the generator.
+- `scripts/run_drc_report.ps1`: runs `dbdoctor -drc_only` and `report -v drc`.
+- `scripts/parse_drc_report.py`: extracts DH report rows to CSV.
+- `docs/showcase_case_analysis.md`: detailed case matrix and per-case interpretation.
+- `docs/automated_verification_results.md`: Chinese final analysis and implementation recommendation.
+- `README.md`: bilingual project overview with language switcher.
+
+## Useful Git Context
+
+Recent commits:
+
+```text
+b3de623 Add multi-drill boundary cases
+31b443f Add slot geometry boundary cases
+d0aca5d Add README language switcher
+a565f70 Add Chinese README section
+275dddd Localize verification results and translate README
+```
+
+The repo-local SSH setting was used successfully:
+
+```text
+core.sshCommand=ssh -i C:/Users/z/.ssh/id_ed25519 -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new
+```
+
+## Open Follow-Up Ideas
+
+Useful next lab directions:
+
+- Staggered multi-drill arrays.
+- Multi-drill definitions involving slot holes, if Allegro supports them in the required mode.
+- Mixed plating multi-drill edge cases, if API/library constraints allow.
+- Production-library mechanical mounting-hole symbols.
+- Additional object types such as testpoints, mounting holes from company symbols, or imported library pins.
+- More coordinate-quantization probes between `0.001` and `0.0001`.
+- Version comparison against another Allegro/SPB release if available.
+- A small independent Python model implementing the current rule and comparing expected vs parsed report results.
+
+## Suggested First Prompt For The Next Session
+
+```text
+We are continuing the Allegro Duplicate Drill Hole DRC lab in D:\pcb\Duplicate Drill Hole DRC.
+Please read docs/session_handoff.md first, then inspect git status and the latest generated results.
+The current goal is to continue from the pushed commit b3de623 without redoing earlier conclusions.
+```
+
