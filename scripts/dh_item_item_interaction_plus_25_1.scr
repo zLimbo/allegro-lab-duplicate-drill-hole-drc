@@ -1,0 +1,4 @@
+skill load "scripts/dh_item_item_interaction.il"
+skill dh_item_item_interaction_main("allegro/dh_item_item_interaction.plus_item_item_25_1.brd" "results/dh_item_item_interaction.plus_item_item_25_1.objects.csv" t)
+set noconfirm
+quit

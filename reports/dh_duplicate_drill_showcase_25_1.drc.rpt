@@ -1,0 +1,60 @@
+DRC Error Report
+D:/pcb/allegro-lab-duplicate-drill-hole-drc/allegro/dh_duplicate_drill_showcase_25_1.drc_only.brd
+Wed May 13 15:56:51 2026
+DRC state: Out of date
+
+DRC Error Count Summary
+DRC Error Type,DRC Error Count
+Manufacturing Constraint,47
+Total DRC Errors,47
+
+Detailed DRC Errors
+Constraint Name,DRC Marker Location,DRC Subclass,Required Value,Actual Value,Constraint Source,Constraint Source Type,Element 1,Element 2
+Duplicate Drill Hole,(79.128 19.632),ALL,FALSE,TRUE,NONE,DESIGN,Pin "U37.4 (V12n)",Via "Via  (79.128 19.632) (V12n)"
+Duplicate Drill Hole,(150.000 8.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Drill_Off_Xp030  (150.000 8.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025  (150.000 8.000) (Dhs_A)"
+Duplicate Drill Hole,(150.000 32.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Md_1X2_C050  (150.000 32.000) (Not On A Net)",Via "Dhs_Md_1X2_C050_Alt  (150.000 32.000) (Not On A Net)"
+Duplicate Drill Hole,(150.000 48.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Slot_Pth_025X075  (150.000 48.000) (Not On A Net)",Via "Dhs_Sloty_Pth_025X075  (150.000 48.000) (Not On A Net)"
+Duplicate Drill Hole,(150.000 80.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Slot_Pth_025X075  (150.000 80.000) (Not On A Net)",Via "Dhs_Sloty_Pth_025X075  (150.000 80.000) (Not On A Net)"
+Duplicate Drill Hole,(150.000 112.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Pad_Small_Same_Drill  (150.000 112.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025  (150.000 112.000) (Dhs_A)"
+Duplicate Drill Hole,(150.000 208.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Slot_Pth_025X075  (150.000 208.000) (Not On A Net)",Via "Dhs_Slot_Pth_025X075  (150.000 208.000) (Not On A Net)"
+Duplicate Drill Hole,(150.000 240.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (150.000 240.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025  (150.000 240.000) (Dhs_A)"
+Duplicate Drill Hole,(186.000 112.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Pad_Square_Same_Drill  (186.000 112.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025  (186.000 112.000) (Dhs_A)"
+Duplicate Drill Hole,(186.000 144.000),ALL,FALSE,TRUE,NONE,DESIGN,Pin "U*.8",Via "Via  (186.000 144.000) (Dhs_A)"
+Duplicate Drill Hole,(186.000 176.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (186.000 176.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025  (186.000 176.000) (Dhs_A)"
+Duplicate Drill Hole,(186.000 240.000),ALL,FALSE,TRUE,NONE,DESIGN,Pin "U*.8",Via "Via  (186.000 240.000) (Dummy Net)"
+Duplicate Drill Hole,(222.000 8.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Drill_Off_Xp030  (222.000 8.000) (Dhs_A)",Via "Dhs_Drill_Off_Xp030  (222.000 8.000) (Dhs_A)"
+Duplicate Drill Hole,(222.000 16.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Md_2X2_C050  (222.000 16.000) (Not On A Net)",Via "Dhs_Md_2X2_C050  (222.000 16.000) (Not On A Net)"
+Duplicate Drill Hole,(222.000 48.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Md_1X2_C050  (222.000 48.000) (Not On A Net)",Via "Dhs_Md_1X2_C050  (222.000 48.000) (Not On A Net)"
+Duplicate Drill Hole,(222.000 112.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Pad_Oblong_Same_Drill  (222.000 112.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025  (222.000 112.000) (Dhs_A)"
+Duplicate Drill Hole,(222.000 144.000),ALL,FALSE,TRUE,NONE,DESIGN,Pin "U*.8",Via "Via  (222.000 144.000) (Dummy Net)"
+Duplicate Drill Hole,(222.000 176.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Npth_025  (222.000 176.000) (Not On A Net)",Via "Dhs_Rnd_Npth_025  (222.000 176.000) (Not On A Net)"
+Duplicate Drill Hole,(222.000 208.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Top_Gnd  (222.000 208.000) (Dhs_A)",Via "Dhs_Top_Gnd  (222.000 208.000) (Dhs_A)"
+Duplicate Drill Hole,(222.000 240.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (222.000 240.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025_Alt  (222.000 240.000) (Dhs_A)"
+Duplicate Drill Hole,(258.000 32.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Md_2X2_C050_Stag  (258.000 32.000) (Not On A Net)",Via "Dhs_Md_2X2_C050_Stag  (258.000 32.000) (Not On A Net)"
+Duplicate Drill Hole,(258.000 112.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Pad_Oblong_Same_Drill  (258.000 112.000) (Dhs_A)",Via "Dhs_Pad_Square_Same_Drill  (258.000 112.000) (Dhs_A)"
+Duplicate Drill Hole,(258.000 144.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_010  (258.000 144.000) (Dhs_A)",Via "Dhs_Rnd_Pth_050  (258.000 144.000) (Dhs_A)"
+Duplicate Drill Hole,(258.000 176.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Slot_Pth_025X075  (258.000 176.000) (Not On A Net)",Via "Dhs_Slot_Pth_035X075  (258.000 176.000) (Not On A Net)"
+Duplicate Drill Hole,(258.000 208.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (258.000 208.000) (Dhs_A)",Via "Dhs_Top_Gnd  (258.000 208.000) (Dhs_A)"
+Duplicate Drill Hole,(258.000 240.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (258.000 240.000) (Dhs_A)",Via "Dhs_Rnd_Pth_050  (258.000 240.000) (Dhs_A)"
+Duplicate Drill Hole,(294.000 8.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Drill_Off_Xm030  (294.000 8.000) (Dhs_A)",Via "Dhs_Drill_Off_Xp030  (294.000 8.000) (Dhs_A)"
+Duplicate Drill Hole,(294.000 32.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Md_2X2_C050  (294.000 32.000) (Not On A Net)",Via "Dhs_Md_2X2_C050_Stag  (294.000 32.000) (Not On A Net)"
+Duplicate Drill Hole,(294.000 64.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Md_1X2_C050  (294.000 64.000) (Not On A Net)",Via "Dhs_Md_1X2_D025_C045  (294.000 64.000) (Not On A Net)"
+Duplicate Drill Hole,(294.000 112.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Pad_Top_Large_Bot_Small  (294.000 112.000) (Dhs_A)",Via "Dhs_Pad_Top_Small_Bot_Large  (294.000 112.000) (Dhs_A)"
+Duplicate Drill Hole,(294.000 144.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (294.000 144.000) (Not On A Net)",Via "Dhs_Rnd_Pth_025  (294.000 144.000) (Not On A Net)"
+Duplicate Drill Hole,(294.000 208.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Top_Gnd  (294.000 208.000) (Dhs_A)",Via "Dhs_Top_Inner1  (294.000 208.000) (Dhs_A)"
+Duplicate Drill Hole,(294.000 240.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Npth_025  (294.000 240.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025  (294.000 240.000) (Dhs_A)"
+Duplicate Drill Hole,(330.000 64.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Md_2X2_C050  (330.000 64.000) (Not On A Net)",Via "Dhs_Md_2X2_D025_C045  (330.000 64.000) (Not On A Net)"
+Duplicate Drill Hole,(330.000 112.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Pad_Large_Same_Drill  (330.000 112.000) (Dhs_B)",Via "Dhs_Pad_Small_Same_Drill  (330.000 112.000) (Dhs_A)"
+Duplicate Drill Hole,(330.000 144.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Power_Bottom  (330.000 144.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025  (330.000 144.000) (Dhs_A)"
+Duplicate Drill Hole,(330.000 240.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (330.000 240.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025  (330.000 240.000) (Dhs_B)"
+Duplicate Drill Hole,(366.000 32.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Md_1X2_D025_C050  (366.000 32.000) (Not On A Net)",Via "Dhs_Md_1X2_D025_C050  (366.000 32.000) (Not On A Net)"
+Duplicate Drill Hole,(366.000 112.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Pad_Oblong_Same_Drill  (366.000 112.000) (Not On A Net)",Via "Dhs_Pad_Square_Same_Drill  (366.000 112.000) (Not On A Net)"
+Duplicate Drill Hole,(366.000 144.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Pad_Large_Same_Drill  (366.000 144.000) (Dhs_A)",Via "Dhs_Pad_Small_Same_Drill  (366.000 144.000) (Dhs_A)"
+Duplicate Drill Hole,(366.000 240.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (366.000 240.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025  (366.000 240.000) (Dhs_A)"
+Duplicate Drill Hole,(402.000 144.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Pad_Large_Same_Drill  (402.000 144.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025  (402.000 144.000) (Dhs_A)"
+Duplicate Drill Hole,(402.000 176.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Gnd_Power  (402.000 176.000) (Dhs_A)",Via "Dhs_Inner2_Bottom  (402.000 176.000) (Dhs_A)"
+Duplicate Drill Hole,(402.000 208.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (402.000 208.000) (Dhs_A)",Via "Dhs_Rnd_Pth_025_Alt  (402.000 208.000) (Dhs_A)"
+Duplicate Drill Hole,(402.000 208.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (402.000 208.000) (Dhs_A)",Via "Dhs_Rnd_Pth_050  (402.000 208.000) (Dhs_B)"
+Duplicate Drill Hole,(402.000 208.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025_Alt  (402.000 208.000) (Dhs_A)",Via "Dhs_Rnd_Pth_050  (402.000 208.000) (Dhs_B)"
+Duplicate Drill Hole,(402.000 240.000),ALL,FALSE,TRUE,NONE,DESIGN,Via "Dhs_Rnd_Pth_025  (402.000 240.000) (Dhs_A)",Via "Dhs_Slot_Pth_025X075  (402.000 240.000) (Dhs_A)"
+
